@@ -1,0 +1,153 @@
+正课:
+1. 什么是jQuery:
+2. 如何使用jQuery:
+3. 选择器:
+
+1. 什么是jQuery: 快速的，简洁的JavaScript库
+   为什么:
+     1. DOM操作的终极简化: 
+         核心DOM: 万能，API繁琐
+         HTML DOM: 简洁，不是万能
+         jQuery: 终极简化:
+          1. 增删改（内容,属性,样式）查
+          2. 事件处理:  简化和兼容性
+     
+          3. 动画操作: 
+          4. AJAX操作:
+     2. 屏蔽浏览器兼容性问题:
+         
+  何时: 
+
+   总结: 终极简化——write less,  do more
+
+2. 如何使用: 
+   1. 版本: 
+      1.11.x:  兼容IE8
+           jquery-1.11.3.js 未压缩版本-可读性好，便于学习
+                                                     但文件大，不便于网络传输
+          jquery-1.11.3.min.js 压缩版本-文件小，便于网络传输，但是可读性差，不便于学习——开发用
+      2.xx.x:  不在兼容IE8
+  2. 手册: 
+  3. 编程步骤: 2步: 
+       1. 将jquery-1.11.3.js文件保存在当前项目的文件夹下
+       2. 在html页面的body元素底部引入jquery-1.11.3.js文件
+            强调: 在自定义脚本之前引入
+  4. jQuery对象: 
+      什么是: 封装找到的DOM对象
+                  并提供操作DOM对象的简化版的API
+                  的类数组对象
+      鄙视题: DOM对象 vs jQuery对象的
+         DOM对象: 由W3C标准规定的，浏览器厂商已经实现的，使用DOM API的标准对象
+            优: 万能       缺: 繁琐
+         jQuery对象: 由jQuery.js函数库定义的第三对象/API
+         DOM对象的API和jQuery对象的API不通用！
+
+     今后，只要使用jquery，都要先获得jquery对象: 
+        如何获得jquery对象: 2种
+          1. 先获得DOM对象，再用$函数封装到jQuery对象
+                var $jQuery=$(DOM对象);
+          2. 直接使用$函数查找到的DOM对象，被自动封装到一个jQuery对象中。
+               var $jQuery=$("selector");
+        强调: 只有放入jQuery对象中的DOM对象，才能使用简化版API。
+       特殊: 万一jQuery对象不支持某项功能: 
+           从jQuery对象中取出DOM对象，使用原生DOM API
+           $jQuery[i] -> $jQuery.get(i) 获得i位置的DOM对象
+
+3. 选择器:  jQuery支持几乎所有CSS选择器
+   提前: 
+     绑定: DOM: elem.addEventListener("事件名",fn);
+              jq: $("selector").事件名(fn); 
+     修改样式: DOM: elem.style.css属性名=值
+                     jq: $("selector").css("css属性名",值)
+
+   回顾: 
+   1. 基本选择器: 
+      #id   .class   元素    *    群组
+   2. 层次选择器:
+      选择器1 选择器2    
+     parent>child  
+     前一个兄弟+后一个兄弟
+     前一个兄弟~之后所有兄弟
+
+   新选择器: 
+   3. 过滤选择器: 通过特定的过滤规则选出所需的DOM元素
+       包括: 基本过滤(新), 内容过滤, 可见性过滤, 属性过滤
+               子元素过滤， 表单过滤
+
+     基本过滤: 也称为位置过滤: 
+          强调: 位置: 指DOM元素在jQuery元素中的下标位置
+        包含: :first, :last, 
+                 :not(selector), 
+                 :even, :odd,
+                 :eq(i)
+                 :gt(i)   :lt(i)
+           何时: 只要选择查询结果中指定位置的元素时
+          vs first-child/last-child/nth-child(n)
+           何时: 只要选择指定父元素下的第几个子元素时
+                
+     内容过滤: （了解）
+      :contains(text) 比如: span:contains("购物车")
+      :empty            比如: span:empty 选择内容为空的span
+      :parent            比如: span:parent 选择包含子内容或元素的span   ——是:empty的反义
+      :has(selector)  比如: div:has(.active) 选择包含class为active的子元素的父元素div       
+     可见性过滤:  （了解）
+       :visible  匹配所有可见的元素
+       :hidden 所有不可见元素
+           4种: css: display:none; visibility:hidden; opacity:0
+                  html: type="hidden" 
+         强调: :hidden只能匹配 display:none; 和type="hidden" 
+
+    回顾: 属性过滤——其实就是css中的属性选择器
+       [属性名] 匹配包含指定属性的元素
+       [属性名=值] 匹配指定属性的值为指定值得元素
+       [属性名!=值] 匹配指定属性的值不是指定值得元素
+       [属性名^=值] 匹配指定属性的值以指定内容开头的元素
+       [属性名$=值] 匹配指定属性的值以指定内容结尾的元素
+       [属性名*=值] 匹配指定属性的值包含指定内容的元素
+       [属性选择器1][属性选择器2]... 匹配同时满足属性选择器1，,2的元素
+
+    回顾: 子元素过滤: 
+       包括: :first-child   :last-child   :nth-child(n)   :only-child
+             选择在父元素下作为指定为位置的子元素
+             位置相对于父元素而言。
+      vs 位置过滤: 选择查询结果集合中指定下标位置的元素
+                         和元素在其父元素下的位置无关
+
+   表单选择器: 利用表单中元素标签和type属性选择表单中的元素 
+      何时:今后，只要选择表单中的元素，都要用表单元素选择器:
+      为什么: 代替DOM中的form.name
+      包括:
+         :input  选择所有input  textarea  select  button
+             vs input: 仅选择input元素
+         :text  选择type为text的元素
+         :password  
+         :radio
+         :checkbox
+         :submit
+         :reset
+         :button
+         :file
+         :hidden 
+	不仅选择type="hidden"，还选择display="none"
+         :image 选取所有图形按钮
+
+   表单属性过滤选择器: 
+    :enabled 选择所有可用的元素
+    :disabled 选择所有不可用的元素
+    :checked 选择被选中的checkbox
+    :selected 选择被选中的option
+
+   课堂练习: 
+     修改标准属性: $("selector").attr("标准属性名","值")
+                             等效: getAttribute和setAttribute
+           所有这类方法，只要省掉第二个参数，就是读取属性值
+     ***问题: attr只能获取或设置元素开始标签中的attribute
+                无法获取或设置不在开始标签中的property
+          解决: prop方法专门读取内存中对象的属性
+             比如: checked属性只能用prop读取
+
+
+
+
+
+      

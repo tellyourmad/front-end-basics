@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var lilei={
+        name:"Li Lei",
+        age:11,
+        intr:function(){
+          console.log("I'm "+this.name+
+                      ",I'm "+this.age);
+        }
+      };
+      function clone(obj){//浅克隆
+        //创建空对象objClone
+        var objClone={};
+        //遍历obj中每个属性
+        for(var key in obj){
+          //向objClone中添加一个新属性,和obj中当前属性同名，并赋值为obj的当前属性值
+          objClone[key]=obj[key];
+        }//(遍历结束)
+        return objClone;
+      }
+      var lileiClone=clone(lilei);
+      console.dir(lilei);
+      console.dir(lileiClone);
+      console.log(lilei==lileiClone);//false
+      console.log(lilei.intr==lileiClone.intr);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			#comment{
+				/*宽度，高度，边框，内边距*/
+				width:90%;
+				min-height:50px;
+				border:1px solid #D0E4C2;
+				padding:10px;
+			}
+
+			#pages a{
+				/*边框，倒角*/
+				border:1px solid #ccc;
+				border-radius:5px;
+				/*内边距*/
+				padding:3px 10px;
+			}
+			#pages{
+				margin-top:10px;
+			}
+
+			#pages a.current{
+				border:0;
+			}
+
+			/*练习2-背景属性*/
+			#comment div.topic{
+				border-bottom:1px solid #D0E4C2;
+				padding:0 0 5px 5px;
+			}
+			#comment div.star{
+				width:76px;
+				height:15px;
+				background-image:url(../Images/iconlist_1.png);
+				background-repeat:no-repeat;
+				background-position:-108px -238px;
+			}
+			#pages a:hover{
+				/*背景颜色，文字颜色*/
+				background-color:#005aa0;
+				color:#fff;
+			}
+			#pages a.current{
+				color:#000;
+				background-color:transparent;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="comment">
+			<div class="topic">
+				<div class="star"></div>
+			</div>
+		</div>
+		<div id="pages">
+			<a class="current">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">6</a>
+		</div>
+	</body>
+</html>

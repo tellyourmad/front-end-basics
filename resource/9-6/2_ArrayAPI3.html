@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var arr=[1,2,3,4,5];
+      var even=arr.filter(function(val){
+        return val%2==0;
+      });
+      console.log(String(arr));
+      console.log(String(even));
+
+      var arr=[1,2,3,4,5];
+      var sum=arr.reduce(function(prev,val){
+        return prev+val;
+      });
+      console.log(sum);
+      var arr2=[6,7,8,9,10];
+      sum=arr2.reduce(function(prev,val){
+        return prev+val;
+      },sum);
+      console.log(sum);
+    </script>
+  </body>
+</html>

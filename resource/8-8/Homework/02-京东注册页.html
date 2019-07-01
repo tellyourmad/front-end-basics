@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			body{
+				/*背景颜色，字体属性*/
+				background:#F2F2F2;
+				font:12px "microsoft yahei";
+			}
+			p,body{
+				margin:0;
+			}
+			#header{
+				/*宽度，高度，行高，背景颜色*/
+				width:100%;
+				height:30px;
+				line-height:30px;
+				background:#fff;
+			}
+			/*页面主体*/
+			#main{
+				/*宽度，水平居中对齐*/
+				width:990px;
+				margin:0 auto;
+			}
+
+			#register_box{
+				/*最小高度，边框（无上边框），背景颜色*/
+				min-height:200px;
+				border:1px solid #ccc;
+				border-top:0;
+				/*上下内边距,背景图像*/
+				padding:20px 0;
+				background:#fff url(../Images/reg_phone.jpg) no-repeat 95% 40px;
+			}
+
+			#register_box span{
+				/*左浮动，宽度，高度，行高，文本颜色，文本右对齐*/
+				float:left;
+				width:180px;
+				height:36px;
+				line-height:36px;
+				color:#999;
+				text-align:right;
+			}
+			#register_box span b{
+				color:red;
+			}
+			
+			#register_box input{
+				/*左浮动，宽度，高度，边框，背景颜色 文本颜色*/
+				float:left;
+				box-sizing:border-box;
+				height:36px;
+				background-color:#fff;
+				color:#999;
+				border:1px solid #ccc;
+				outline:0;
+				/*左右padding*/
+				padding:0 20px 0 5px;
+			}
+			#register_box input.txtUsername{
+				background:#fff url(../Images/user.jpg) no-repeat 98% center;
+			}
+			#register_box input:focus{
+				border-color:#7ABD54;
+			}
+			#register_box p{
+				/*左浮动，宽度，高度，行高，边框，左内边距，左外边距，背景颜色*/
+				float:left;
+				width:270px;
+				height:36px;
+				line-height:36px;
+				box-sizing:border-box;
+				border:1px solid #ccc;
+				padding-left:3px;
+				margin-left:5px;
+				background-color:#F7F7F7;
+			}
+
+			#register_box>div{
+				/*overflow:hidden; 上下外边距*/
+				overflow:hidden;
+				padding:20px 0;
+			}
+
+			#register_box input.w270{
+				width:270px;
+			}
+			#register_box .w110{
+				width:110px;
+			}
+
+			#register_box #chkAgree{
+				height:13px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 页面顶部 ：导航链接 -->
+		<header id="header">
+			导航链接部分
+		</header>
+		<!-- 页面主体 -->
+		<section id="main">
+			<!-- 顶部 LOGO -->
+			<header id="logo">
+				<img src="../Images/jd_logo.png">
+				<img src="../Images/welcome.png">
+			</header>
+			<!-- 页签 -->
+			<div id="tabs">页签</div>
+			<!-- 注册框 -->
+			<div id="register_box">
+				<div>
+					<span>
+						<b>*</b>
+						用户名：
+					</span>
+					<input class="w270 txtUsername">
+					<p>4-20位字母、数字、汉字及'-'、'_'组合</p>
+				</div>
+				<div>
+					<span>
+						<b>*</b>
+						密码：
+					</span>
+					<input class="w270" type="password">
+					<p>4-20位字母、数字、汉字及'-'、'_'组合</p>
+				</div>
+				<div>
+					<span>
+						<b>*</b>
+						密码：
+					</span>
+					<input class="w270" type="password">
+					<p>4-20位字母、数字、汉字及'-'、'_'组合</p>
+				</div>
+				<div>
+					<span>
+						<b>*</b>
+						密码：
+					</span>
+					<input class="w270" type="password">
+					<p>4-20位字母、数字、汉字及'-'、'_'组合</p>
+				</div>
+				<div>
+					<span>
+						<b>*</b>
+						短信验证码：
+					</span>
+					<input class="w110">
+					<p class="w110">获取短信验证码</p>
+				</div>
+				<div>
+					<span>
+						
+					</span>
+					<div class="agree">
+						<input id="chkAgree" type="checkbox">
+						<label for="chkAgree">我已同意并阅读</label>
+						<a href="#">&lt;&lt;京东用户注册协议&gt;&gt;</a>
+					</div>
+				</div>
+			</div>
+			<!-- 页脚 -->
+			<footer id="foot">页脚部分</footer>
+		</section>
+	</body>
+</html>

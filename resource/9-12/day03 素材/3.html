@@ -1,0 +1,78 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>联动菜单</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+	<div id="category"></div>
+  <script>
+	/*使用 HTML DOM 的方式实现联动菜单*/
+	var categories=[
+    {"id":10,"name":'男装',"children":[
+      {"id":101,"name":'正装'},
+      {"id":102,"name":'T恤'},
+      {"id":103,"name":'裤衩'}
+    ]},
+    {"id":20,"name":'女装',"children":[
+      {"id":201,"name":'短裙'},
+      {"id":202,"name":'连衣裙'},
+      {"id":203,"name":'裤子',"children":[
+        {"id":2031,"name":'长裤'},
+        {"id":2031,"name":'九分裤'},
+        {"id":2031,"name":'七分裤'}
+      ]},
+    ]},
+    {"id":30,"name":'童装',"children":[
+      {"id":301,"name":'帽子'},
+      {"id":302,"name":'套装',"children":[
+        {"id":3021,"name":"0-3岁"},
+        {"id":3021,"name":"3-6岁"},
+        {"id":3021,"name":"6-9岁"},
+        {"id":3021,"name":"9-12岁"}
+      ]},
+      {"id":303,"name":'手套'}
+    ]}
+  ];
+
+  function createSelect(arr){
+    //创建select
+    var sel=document.createElement("select");
+    //创建option，同时设置内容为"-请选择-",值为-1,再将新option追加到select下
+    sel.add(new Option("-请选择-",-1));
+    //遍历arr中每个商品分类对象
+    for(var i=0;i<arr.length;i++){
+      //创建option，同时设置内容为当前分类的name，值为当前分类的id，再将新option追加到select下
+      sel.add(
+        new Option(arr[i].name,arr[i].id)
+      );
+    }
+    //为sel元素绑定选择事件
+    sel.onchange=function(){//this->sel
+      //获得当前select的父元素parent
+      var parent=this.parentNode;
+      //反复: 只要当前select不是parent的lastChild
+      while(this!=parent.lastChild){
+        //删除parent下的lastChild
+        parent.removeChild(parent.lastChild);
+      }
+      
+      //获得当前选中项的下标-1，保存在i中
+      var i=this.selectedIndex-1;
+      if(i>=0){//如果i>=0
+        //如果arr[i]的children不是undefined
+        if(arr[i].children){
+          //调用createSelect函数，传入arr中i位置的对象的children子数组作为参数，继续创建下级select
+          createSelect(arr[i].children);
+        }
+      }
+    }
+    //将select追加到id为category的div下
+    document.getElementById("category")
+            .appendChild(sel);
+  }
+	createSelect(categories);
+</script>
+</body>
+</html>

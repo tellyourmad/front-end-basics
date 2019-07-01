@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <select id="sel">
+    </select>
+    <script>
+      //无缝拼接
+      var chars=["H","e","l","l","o"];
+      console.log(chars.join(""));
+      //单词拼接为句子
+      var words=["no","zuo","no","die"];
+      console.log(words.join(" "));
+      //判断空数组
+      var arr=[,,,,,,,,,];
+      console.log(arr.join(""));
+      //动态生成页面元素的内容
+      var provs=["北京市","天津市","山东省","河南省","山西省"];
+      var html="<option>"+
+        provs.join("</option><option>")
+        +"</option>";
+      //设置id为sel的元素开始标签到结束标签之间的html内容
+      sel.innerHTML=html;
+    </script>
+  </body>
+</html>

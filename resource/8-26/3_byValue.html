@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      //按值传递:两个变量间赋值时，或将变量作为参数传入函数时，其实仅将原变量中的值复制一个副本给对方
+      //原始类型的值: 修改新变量，不影响原变量
+      var a=3;
+      var b=a;//a将自己的值复制了一个副本给b
+      a++;
+      console.log(b);//3
+      console.log(a);//4
+
+      var card=10;
+      function buy(card){
+        card-=3;
+        console.log("余额"+card);
+      }
+      buy(card);//7
+      console.log(card);//10
+
+      //引用类型的对象: 用原变量修改对象，新变量同样受影响。因为两个变量引用的是同一个对象
+      var dd=["包","包","包","包","包"];
+    /*
+      var xx=dd;
+      dd.length--;
+      console.log(String(xx));//4个
+      console.log(String(dd));//4个
+      xx.length--;
+      console.log(String(xx));//3个
+      console.log(String(dd));//3个
+    */
+      function eat(arr){
+        arr.length--;
+        console.log(arr.length);
+      }
+      eat(dd);//4
+      console.log(dd.length);//4
+    </script>
+  </body>
+</html>

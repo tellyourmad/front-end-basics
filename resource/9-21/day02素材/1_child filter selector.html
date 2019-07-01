@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>.....</title>
+  <meta charset="utf-8"/>
+  <style>
+    ul{width:150px;}
+    /*设置ul下的li下的li右填充25px,取消背景平铺,背景居右定位*/
+    ul li li{
+      padding-right:25px;
+      background-repeat:no-repeat;
+      background-position:right;
+    }
+  </style>
+ </head>
+ <body>
+	  <ul>
+      <li>电影
+        <ol>
+          <li>星际迷航3</li>
+          <li>大话西游3</li>
+          <li>爵迹</li>
+        </ol>
+      </li>
+      <li>综艺
+        <ol>
+          <li>我去上学了</li>
+        </ol>
+      </li>
+      <li>动漫
+        <ol></ol>
+      </li>
+    </ul>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script>
+      //选择作为ol下的第一个li，设置其背景图片为img/fire.jpg
+      $("ol>li:first-child")
+       .css("backgroundImage","url(img/fire.jpg)");
+      //选择作为ol下的最后一个li，设置其背景图片为img/snow.jpg
+      $("ol>li:last-child")
+       .css("backgroundImage","url(img/snow.jpg)");
+      //选择作为ol下唯一的一个li，设置其背景图片为img/only.jpg
+      $("ol>li:only-child")
+       .css("backgroundImage","url(img/only.jpg)");
+      //选择空的ol，设置其背景图片为img/empty.jpg,再设置其宽高为60*60
+      $("ol:empty").css({
+        backgroundImage:"url(img/empty.png)",
+        width:"60px",
+        height:"60px",
+        backgroundRepeat:"no-repeat"
+      });
+    </script>
+ </body>
+</html>

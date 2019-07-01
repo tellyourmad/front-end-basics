@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			/*1、两个数字的相加*/
+			function add(num1,num2){
+				console.log(num1+num2);
+				return num1 + num2;
+			}
+			
+			/*2、定义一个接收3个number的函数，打印并返回最大值*/
+			function getMax(num1,num2,num3){
+				var max = num1;
+				max = num2>max?num2:max;
+				max = num3>max?num3:max;
+				console.log("最大值为:"+max);
+				return max;//将max返回给调用处
+			}
+			
+			/*3、传入3个数字，由小到大输出*/
+			function sort(x,y,z){
+				//1、比较 x 和 y ， 如果 x > y ，互换位置
+				x>y&&(x^=y,y^=x,x^=y);
+				//2、比较 y 和 z ， 如果 y > z , 互换位置
+				y>z&&(y^=z,z^=y,y^=z);
+				//3、比较 x 和 y ， 如果 x > y , 互换位置
+				x>y&&(x^=y,y^=x,x^=y);
+				//打印 ... ...
+				console.log("x="+x+",y="+y+",z="+z);
+			}
+
+			/*4、计算奖金 ：根据利润提成
+					1、利润 低于或等于10万元时，奖金可提10%
+					2、利润 高于10万低于20万，低于10W按10%提，高于10w,可提7.5%	
+						15W = 1W + 3750
+					3、20W~40W ，高于20W 提5%
+						30W = 1W + 7500 + 5000
+					4、40W~60W ，高于40W 提3%
+					5、60W~100W ，高于60W 提1.5%
+					6、高于 100W ，超出部分 提1%
+				*/
+				function calBonus(sales){
+					var bonus = 0;
+					var _sales = sales;
+					//1、>= 100W
+					sales>=100&&(
+						bonus+=(sales-100)*0.01,//计算100W以上的奖金,累加到 bonus的后面
+						sales=100
+					);
+					//2、>= 60W
+					sales>=60&&(
+						bonus+=(sales-60)*0.015,//计算 60W~100W奖金
+						sales=60
+					);
+					//3、>= 40W
+					sales>=40&&(
+						bonus+=(sales-40)*0.03,
+						sales=40
+					);
+					//4、>= 20W
+					sales>=20&&(
+						bonus+=(sales-20)*0.05,
+						sales=20
+					);
+					//5、>= 10W
+					sales>=10&&(
+						bonus+=(sales-10)*0.075,
+						sales=10
+					);
+					bonus+=sales*0.1;
+					console.log("利润为:"+_sales+",奖金为:"+bonus);
+					return bonus;
+				}
+
+
+
+
+
+
+			
+			/*在testAdd中 调用 add(num1,num2)*/
+			function testAdd(){
+				console.log(add(3,4));
+			}
+		</script>
+	</body>
+	<button onclick="calBonus(120);">调用函数</button>
+</html>

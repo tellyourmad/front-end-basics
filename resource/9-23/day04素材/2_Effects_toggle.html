@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		.box {
+			border: 1px solid #aaa;
+			background: #eee;
+			color: #333;
+			padding: 10px;
+			border-radius: 4px;
+			width: 200px;
+		}
+	</style>
+ </head>
+ <body>
+  <h1>jQueryUI-Effects</h1>
+	<h3>新的动画特效</h3>
+  <button>显示/隐藏box</button><br><br>
+  <div class="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum vero necessitatibus aut dolores nostrum suscipit nesciunt magni quae pariatur non quas doloribus animi fuga reiciendis voluptatem unde minus! Quisquam provident!</div>
+  <script src="js/jquery-1.11.3.js"></script>
+  <script src="jquery-ui-1.11.4/jquery-ui.js"></script>
+  <script>
+    //为按钮绑定单击事件
+    $("button").click(function(){
+      //切换class为box的元素的显示或隐藏
+      $(".box").toggle('bounce',2000);
+    })
+  </script>
+ </body>
+</html>

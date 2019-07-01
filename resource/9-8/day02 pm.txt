@@ -1,0 +1,93 @@
+回顾:
+1. 查找:
+   1. 节点间关系:
+      节点树: 
+      1. 父子关系: 
+        parentNode
+        childNodes
+        firstChild
+        lastChild
+      2. 兄弟关系:
+        previousSibling
+        nextSibling
+     元素树: 
+      1. 父子关系: 
+        parentElement
+        children
+        firstElementChild
+        lastElementChild
+      2. 兄弟关系:
+        previousElementSibling
+        nextElementSibling
+ 
+   2. 按html属性找:
+      document.getElementById()
+      parent.getElementsByTagName();
+      parent.getElementsByName();
+      parent.getElementsByClassName();
+   3. 按选择器查找: 
+      parent.querySelector();
+      parent.querySelectorAll();
+   4. VIP通道:
+      document.body
+      document.head
+      document.documentElement - html
+
+正课: 
+1. 修改:
+   内容: 
+   属性: 标准、自定义 
+   样式: 内联样式、内/外部样式表
+
+1. 修改内容: 
+   elem.innerHTML: 元素开始标签到结束标签之间的html内容
+   elem.textContent: 元素开始标签到结束标签之间的文本内容
+                                 去掉html标签
+      IE8.innerText
+
+  练习: 技巧: 如果遍历过程中会删除数组的元素，则要从后向前反向遍历。
+  
+2. 访问或操作元素的属性: 
+    标准属性:
+       核心DOM: 万能
+            1. 访问属性节点对象:
+                var node=elem.attributes[i/"属性名"];
+                var node=elem.getAttributeNode("属性名");
+                      node.value->获得属性值
+            2. 获得属性值: 
+                var value=elem.getAttribute("属性名");
+            3. 修改属性值:
+                elem.setAttribute("属性名","值");
+            4. 移除属性: 
+                elem.removeAttribute("属性名");
+            5. 判断是否包含指定属性: 
+                var bool=elem.hasAttribute("属性名");
+
+       HTML DOM: 将html标准属性封装到了元素对象中
+           elem.属性名 
+           问题: 仅能访问HTML标准属性
+
+    自定义属性: 
+       核心DOM: 万能
+       HTML5 规定: 
+         1, 定义自定义属性时: data-属性名="值"
+         2, 读取自定义属性: elem.dataset.属性名
+
+    property   vs  attribute
+     显式写在开始标签中的: attribute
+        强调: getAttribute只能获得在页面上显式定义的属性值
+     在内存中对象里保存的: property
+        标准属性: 既是property也是attribute
+        自定义属性: 只是attribute
+
+     input type="checkbox" 要获得选中状态checked
+          不能用getAttribute，一定要用elem.checked
+
+
+
+
+
+
+
+
+

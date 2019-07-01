@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			#d1{
+				width:200px;
+				height:200px;
+				background:red;
+				/*过渡*/
+				/*1、过渡属性*/
+				transition-property:all;
+				/*2、过渡时长*/
+				transition-duration:3s;
+				/*3、速度时间曲线函数*/
+				transition-timing-function:linear;
+				/*4、过渡延迟*/
+				transition-delay:5s;
+			}
+			#d1:hover{
+				background:blue;
+				border-radius:50%;
+				width:400px;
+				height:400px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+		
+		</div>
+	</body>
+</html>

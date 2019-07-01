@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var arr=[1,2,3,4,5];
+            // 0 1 2 3 4
+    /*
+      //删除开头的2个元素,再拼接到arr结尾
+      arr=arr.concat(arr.splice(0,2));  
+      console.log(String(arr));//[3,4,5,1,2]
+      //删除结尾的2个元素，再拼接到arr开头
+      arr=arr.splice(arr.length-2,2).concat(arr)
+      console.log(String(arr));
+    */
+      //arr.splice(2,0,12,23,[123,234]);
+      //console.dir(arr);
+      arr.splice(1,2,12,23,123);
+      console.log(String(arr));
+      //1,12,23,123,4,5
+    </script>
+  </body>
+</html>

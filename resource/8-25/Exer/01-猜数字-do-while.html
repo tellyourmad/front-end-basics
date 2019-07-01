@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			function guess(){
+				//1、生成随机数
+				var r = parseInt(Math.random()*100);
+				do{
+					//操作
+					//1、要求用户输入数据
+					var input = prompt("Please input a number：");
+					//判断
+					if(input == "exit"){
+						console.log("放弃了!");
+					}else if(input > r){
+						console.log("大了!");
+					}else if(input < r){
+						console.log("小了!");
+					}else if(input == r){
+						console.log("恭喜您，猜对了!");
+					}else{
+						console.log("输入格式不正确!");
+					}
+				}while(input!=r&&input!="exit");
+			}
+
+			guess();
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			body{
+				/*1、声明计数器*/
+				counter-reset:c1 0;
+			}
+			
+			p{
+				/*2、设置 计数器 c1 的增量*/
+				counter-increment:c1 1;
+				/*4、声明/复位计数器2 c2*/
+				counter-reset:c2 0;
+			}
+			/*3、使用 计数器 c1*/
+			p:before{
+				content:counter(c1)"、";
+				font-weight:bold;
+			}
+			div{
+				/*5、设置 c2 的增量*/
+				counter-increment:c2 1;
+			}
+
+			/*6、使用 计数器 c2*/
+			div:before{
+				content:counter(c1)"."counter(c2);
+				font-weight:bold;
+			}
+		</style>
+	</head>
+	<body>
+		<p>HTML</p>
+		<div>块级元素</div>
+		<div>行内元素</div>
+		<div>图片元素</div>
+		<p>CSS</p>
+		<div>行内样式</div>
+		<div>内部样式表</div>
+		<div>外部样式表</div>
+	</body>
+</html>

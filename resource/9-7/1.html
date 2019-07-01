@@ -1,0 +1,32 @@
+﻿<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>浏览节点对象的原型链</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <span id="s1">Hello</span>
+    <h1>标题一</h1>
+    <script>
+      console.dir(document.body.childNodes);
+      console.dir(document.body.children);
+      var span=//获得span元素对象
+          document.body.firstChild.nextSibling;
+        //document.body.childNodes[1];
+        //document.body.firstElementChild;
+        document.body.children[0];
+      console.dir(span);
+//    console.log(span.nodeType,span.nodeName);
+//    //获得span下第一个子节点
+//    var hello=span.firstChild;
+//    //输出节点的名称和节点值
+//    console.log(hello.nodeName,hello.nodeValue);
+//    //获得title下的文本节点
+      var title=document.body
+                        .previousElementSibling
+                        .firstElementChild
+                        .firstChild;
+      console.dir(title);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      console.log(Number.MAX_VALUE);
+      var years=
+        Number.MAX_VALUE/(1000*3600*24*365);
+      console.log(years);
+      var now=new Date();
+      console.log(now.getTime());
+      //两个日期对象可相减,结果是毫秒差
+      var birth=new Date("1983/12/26");
+      var days=
+        parseInt((now-birth)/(1000*3600*24));
+      console.log(days);
+    /*
+      //创建日期对象hiredate: 2012/6/30
+      var hiredate=new Date("2012/6/30");
+      //复制hiredate到到期时间enddate中
+      var enddate=new Date(hiredate);
+      enddate.setFullYear(//将enddate+3年
+        enddate.getFullYear()+3
+      );
+      //复制enddate到续签时间renewdate
+      var renewdate=new Date(enddate);
+      //将renewdate-1月
+      renewdate.setMonth(
+        renewdate.getMonth()-1
+      );
+      //如果renewdate是周六,就renewdate-1天
+      if(renewdate.getDay()==6){
+       renewdate.setDate(renewdate.getDate()-1);
+      }else if(renewdate.getDay()==0){
+      //否则,如果renewdate是周日,就renewdate-2天
+       renewdate.setDate(renewdate.getDate()-2);
+      }
+      //复制renewdate到提醒时间alertdate
+      var alertdate=new Date(renewdate);
+      //将alertdate-7天
+      alertdate.setDate(alertdate.getDate()-7);
+      console.log(
+        "到期时间:"+enddate,
+        "续签时间:"+renewdate,
+        "提醒时间:"+alertdate
+      );
+    */
+      function afterDays(days){
+        var now=new Date();//获得当前时间now
+        //i从0开始，到<days结束
+        for(;days>0;days--){
+        /*
+          //如果now是周六，就now+1天
+          if(now.getDay()==6){
+            now.setDate(now.getDate()+1);
+          }else if(now.getDay()==5){
+          //否则，如果now是周五，就now+2天
+            now.setDate(now.getDate()+2);
+          }
+          now.setDate(now.getDate()+1);//now+1天
+        */
+          now.setDate(now.getDate()+
+            (now.getDay()==6?2:
+              now.getDay()==5?3:1)
+          );
+        }
+        return now;
+      }
+      console.log(afterDays(15));//22
+
+      function format(date){
+        var week=//定义数组week:[日,一,....,六]
+          ["日","一","二","三","四","五","六"];
+        var y=date.getFullYear();//获得年y
+        var M=date.getMonth()+1;//获得月M,再+1
+        M<10&&(M="0"+M);//如果M<10，就改为0+M
+        var d=date.getDate();//获得日d
+        d<10&&(d="0"+d); //如果d<10，就该位0+d
+        var day=date.getDay();//获得星期day
+        //获得week中day位置的汉字保存回day中
+        day=week[day];
+        var h=date.getHours();//获得小时h
+        //定义变量am，赋值为:
+         //如果h<12,就赋值为上午,否则赋值为下午
+        var am=h<12?"上午":"下午";
+        h-=12;//将h-12
+        h<10&&(h="0"+h);//如果h<10，就改为0+h
+        var m=date.getMinutes();//获得分钟m
+        m<10&&(m="0"+m);//如果m<10，就改为0+m
+        return y+"年"+M+"月"+d+"日 星期"+day+
+               " "+am+h+":"+m;
+        //2016年09月01日 星期四 上午 11:57
+      }
+      console.log(format(new Date()));
+    </script>
+  </body>
+</html>

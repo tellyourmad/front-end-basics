@@ -1,0 +1,89 @@
+回顾: 
+1. 添加和删除: 
+  添加: 3步:
+    1. var a=document.createElement("a")
+    2. 设置关键属性
+    3. 将元素添加到DOM树:
+       parent.appendChild(a);
+       parent.insertBefore(a,old);
+       parent.replaceChild(a,old);
+
+  优化: 尽量少的操作DOM树，避免反复layout
+    1. 如果同时添加父元素和子元素，应在内存中先将子元素拼到父元素下，再将父元素一次性添加到DOM树
+    2. 如果同时添加多个平级子元素，应先将所有子元素放入文档片段，再将文档片段一次性添加到DOM树
+
+    文档片段: 
+      1. var frag=document.createDocumentFragment();
+      2. frag.appendChild(child);
+      3. parent.appendChild(frag);
+
+  删除: parent.removeChild(child);
+     child.parentNode.removeChild(child);
+
+2. HTML DOM常用对象: 
+   Image: var img=new Image();
+   
+   Select: 
+     属性: selectedIndex,   options,   value
+     方法: add(opt),   remove(i)
+     事件: onchange
+   Option: 
+     创建: var opt=new Option(text,value)
+
+正课: 
+1. HTML DOM常用对象: 
+   Table   
+      tHead:
+         var thead=table.createThead();
+         table.deleteThead();
+         rows: 
+             var tr=thead.insertRow(i);
+                   //省略i，表示末尾追加
+             thead.deleteRow(i);
+                   //i不能省略
+             cells: 
+               var td=tr.insertCell(i);
+                   //省略i，表示末尾追加
+               tr.deleteCell(i)
+      tBodies
+         tBody:
+         var tbody=table.createTBody();
+         //没有table.deleteTBody!
+      tFoot: 同tHead
+         
+   Table.rows:
+      table.insertRow(i);
+      table.deleteRow(i);
+
+   row.rowIndex: 标识row在整个表中的下标位置
+      table.deleteRow(row.rowIndex)
+
+   强调: 所有creatxxx/insertxxx方法都会自动将新元素添加到父元素下，不需要appendChild
+
+   练习: 确认框: confirm   两个按钮
+                 点确认，就返回true，否则返回false
+
+   Form
+     获取: var form=document.forms[i/id/name];
+     属性: 
+       length: 表单中，表单元素的个数
+       elements[i/id/name]
+       获得表单中的元素: 
+	 form.name => form.elements["name"]
+     方法:  submit(); 手动提交表单
+     事件:
+ 
+     每个表单元素都有两个方法: 
+       elem.focus(); //让elem获得焦点
+       elem.blur(); //让elem失去焦点
+
+
+
+
+
+
+
+
+
+
+

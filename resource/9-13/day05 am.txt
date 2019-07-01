@@ -1,0 +1,87 @@
+回顾: 
+1. ***HTML DOM常用对象:
+   Table
+     创建: createTHead()   createTBody()    createTFoot
+     删除: deleteTHead()   deleteTFoot()
+     tHead
+        insertRow(i)   deleteRow(i)//i相对于当前行分组内的位置
+        rows: 
+            tr
+                insertCell(i)    deleteCell(i)
+                cells: td
+     tBodies
+        tBody
+     tFoot
+
+     insertRow(i)     deleteRow(i)//i相对于整个表中的位置
+     rows: 
+
+     tr.rowIndex: tr相对于整个表的位置
+
+  Form:
+    获得Form: document.forms[i/id/name]
+        form:
+           属性: length    
+           方法: submit();
+    获得表单元素: form.elements[i/id/name]
+                           form.name
+        elem: 
+           方法: elem.focus()       elem.blur()
+
+2. BOM
+   打开和关闭窗口: 
+    打开: var pop=open("url","name",config)
+                 其中: config="top=?,left=?,width=?,height=?"
+                                                           //文档显示区大小
+    关闭: close()
+
+    打开连接四种方式: 
+     1. 在当前窗口打开，可后退:  open("url","_self")
+     2. 在当前窗口打开，不可后退: location.replace("url");
+     3. 在新窗口打开，可重复打开: open("url")
+     4. 在新窗口打开，只能打开一个: open("url","name")
+
+   窗口大小与窗口定位
+      大小: outerWidth/outerHeight
+               innerWidth/innerHeight
+         修改: resizeTo(width,height)//完整大小
+                  resizeBy(width的增量,height的增量)
+      定位: window.screenLeft||window.screenX
+               window.screenTop||window.screenY
+          修改: moveTo(left,top)
+                   moveBy(left的增量,top的增量)
+
+正课: 
+1. *****定时器
+   什么是: 让程序按照指定的时间间隔自动执行任务
+   何时: 动画
+   
+周期性定时器: 让程序按照指定的时间间隔反复自动执行同一任务。
+   何时: 只要反复自动执行一项任务
+   如何: 3件事:
+     1. 任务函数: 定义每次要执行的任务
+     2. 启动定时器:  timer=setInterval(任务函数,interval)
+                     让引擎每隔interval ms自动执行一次任务函数
+            其中: timer: 是当前定时器任务的一个序号
+     3. 停止定时器: clearInterval(timer)
+            如果需要停止定时器，都要在启动时就提前保存序号
+        如何自动停止定时器: 
+           在任务函数的结尾，判断一个临界值，如果达到临界值，就停止定时器.
+
+一次性定时器: 让程序先等待一段时间，再自动执行一次任务。
+                     执行一次后，自动停止。
+   何时: 只要先等待一段时间，再执行一次任务
+   用法: 同周期性定时器
+     1. 任务函数:
+     2. 启动: timer=setTimeout(task,wait);
+     3. 停止: clearTimeout(timer);
+                  不是停止执行，而是停止等待
+
+
+
+
+
+
+    
+
+

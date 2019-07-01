@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<ul id="ul_outside">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>
+				<ul>
+					<li>a</li>
+					<li>b</li>
+					<li>c</li>
+					<li>d</li>
+				</ul>
+			</li>
+		</ul>
+		<script>
+			var elemId=document.getElementById("ul_outside");
+			var elemTag=elemId.getElementsByTagName();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var code="EaB4";
+      //请用户反复数组验证码，如果输入不正确，就提示，验证码错误，再重新输入
+      while(
+       prompt("输入验证码:"+code).toUpperCase()
+       !=code.toUpperCase()
+      ){
+        alert("验证码错误，请重新输入");
+      }
+      document.write("验证通过");
+    </script>
+  </body>
+</html>

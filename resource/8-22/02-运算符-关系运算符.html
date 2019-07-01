@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			var num1 = 25;
+			var num2 = 28;
+			console.log(num1>num2);//false
+			console.log(num1<num2);//true
+			console.log(num1>=num2);//false
+			console.log(num1<=num2);//true
+			console.log(num1==num2);//false
+			console.log(num1!=num2);//true
+
+			var str1="32";
+			console.log(str1+"=="+num1+"为真吗?");
+			console.log(str1==num1);
+
+			console.log("使用全等和不全等判断 数据是否相等");
+			console.log(str1 === num1);//string === number :false
+			console.log(str1 !== num1);//string !== number :true
+
+			//判断 是否为 "非数字"
+			console.log("num1是数字吗?"+isNaN(num1));
+			console.log("str1是数字吗?"+isNaN(str1));
+			var strn="35Hello World";
+			console.log("strn是数字吗?"+isNaN(strn));
+		</script>
+	</body>
+</html>

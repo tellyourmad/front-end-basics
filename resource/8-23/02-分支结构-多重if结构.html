@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			function calScore(){
+				//1、输入一个考试分数
+				var score = Number(prompt("Your score :"));
+				//2、判断分数范围
+				/*if(score == 100){
+					console.log("兰博基尼");
+				}else{
+					if(score >= 90){
+						console.log("法拉利");
+					}else{
+						if(score >= 80){
+							console.log("奥迪Q7");
+						}
+						if(score >= 70){
+							console.log("奥拓R8");
+						}
+						if(score >= 60){
+							console.log("自行车");
+						}else{
+							console.log("俩大嘴巴子!");
+						}	
+					}
+				}*/
+
+				if(score == 100){
+					console.log("兰博基尼");
+				}else if(score >= 90){
+					console.log("法拉利");
+				}else if(score >= 80){
+					console.log("奥迪Q7");
+				}else if(score >= 70){
+					cosnole.log("奥拓R8");
+				}else if(score >= 60){
+					console.log("自行车");
+				}else{
+					console.log("俩大嘴巴子!");
+				}
+			}
+		</script>
+		<button onclick="calScore();">测试</button>
+	</body>
+</html>

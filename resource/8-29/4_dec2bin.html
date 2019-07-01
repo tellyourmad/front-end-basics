@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      function dec2bin(dec){
+        var bin=[];//声明空数组bin
+        //只要dec>0，就反复
+        while(dec>0){
+          //向bin中压入: dec/2的余数
+            //push
+          bin.unshift(dec%2);
+          //将dec/2取整,再保存回dec中
+          dec=parseInt(dec/2);
+        }//(遍历结束)
+        //颠倒bin -> 如何不用reverse呢？
+        //bin.reverse();
+        //返回 bin无缝拼接的结果
+        return bin.join("");
+      }
+      var n=90;
+      console.log(dec2bin(n));
+      console.log(n.toString(2));
+    </script>
+  </body>
+</html>

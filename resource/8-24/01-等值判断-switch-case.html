@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			/**
+			 * 要求用户 输入 星期 ? ,根据星期 ？ 判断 吃什么
+			 * 星期1：排骨
+			 * 星期2: 扣肉
+			 * 星期3: 红烧肉
+			 * 星期4: 鱼头泡饼
+			 * 星期5: 烤鸭
+			 * 星期6:
+			 * 星期7:
+			 */
+			 function eat(){
+				var input = prompt("请输入今天的星期几:");
+				switch(input){
+					case "1":
+						console.log("今天排骨!");
+						break;
+					case "2":
+						console.log("今天吃扣肉!!");
+						break;
+					case "3":
+						console.log("今天吃红烧肉");
+						break;
+					case "4":
+						console.log("今天吃鱼头泡饼");
+						break;
+					case "5":
+						console.log("今天吃 烤鸭!!!");
+						break;
+					case "6":
+					case "7":
+						console.log("今日不提供午餐！");
+						break;
+					default:
+						console.log("您的输入有误!!!");
+						break;
+				}
+			 }
+			 eat();
+		</script>
+	</body>
+</html>

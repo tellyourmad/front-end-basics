@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			body{
+				font-size:12px;
+			}
+			#discuss,#discuss-data{
+				width:990px;
+			}
+			/*页签 : .mt*/
+			#discuss div.mt{
+				/*高度，边框，背景*/
+				height:30px;
+				border:1px solid #ddd;
+				border-top:2px solid #999;
+				background:#f7f7f7;
+			}
+			/*内容 #discuss-content*/
+			#discuss-content{
+				/*下边框*/
+				border-bottom:1px solid #ddd;
+			}
+
+			/*#discuss-data th*/
+			#discuss-data th{
+				/*文本颜色，上下内边距，下边框*/
+				color:#666;
+				padding:5px 0;
+				border-bottom:1px solid #dedede;
+			}
+
+			/*每行中的第一列*/
+			#discuss-data .col1{
+				/*宽度，文本左对齐*/
+				width:620px;
+				text-align:left;
+			}
+
+			/*table中的每队td*/
+			#discuss-data td{
+				/*文字水平居中*/
+				text-align:center;
+				/*文本颜色，下边框，上下内边距*/
+				color:#9C9A9C;
+				border-bottom:1px dotted #dedede;
+				padding:5px 0;
+			}
+
+			/*所有 a 标记的颜色*/
+			#discuss a{
+				color:#005aa0;
+				text-decoration:none;
+			}
+			/*内容区域中的a 鼠标移入时，显示下划线*/
+			#discuss-content a:hover{
+				text-decoration:underline;
+			}
+
+			/*晒 论图标*/
+			#discuss-data i{
+				/*左内边距，下内边距，背景属性*/
+				padding-left:21px;
+				padding-bottom:5px;
+				background:url(../Images/iconlist_1.png) no-repeat;
+			}
+			#discuss-data i.shai{
+				background-position:-110px -220px;
+			}
+			#discuss-data i.lun{
+				background-position:-152px -220px;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div id="discuss">
+			<!-- 页签 -->
+			<div class="mt"></div>
+			<!-- 内容 -->
+			<div id="discuss-content">
+				<table id="discuss-data">
+					<thead>
+						<tr>
+							<th class="col1">主题</th>
+							<th>回复/浏览</th>
+							<th>作者</th>
+							<th>时间</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col1">
+								<i class="shai"></i>
+								<a href="#">好大一瓶</a>
+							</td>
+							<td>0/0</td>
+							<td>
+								<a href="#">2001年冬天</a>
+							</td>
+							<td>
+								2011-11-11 11:11:11
+							</td>
+						</tr>
+						<tr>
+							<td class="col1">
+								<i class="lun"></i>
+								<a href="#">好大一瓶</a>
+							</td>
+							<td>0/0</td>
+							<td>
+								<a href="#">2001年冬天</a>
+							</td>
+							<td>
+								2011-11-11 11:11:11
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

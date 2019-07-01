@@ -1,0 +1,36 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>复杂选择器（2）</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />        
+        <style>
+            /*属性选择器*/
+            .important  {font-weight:bold;}
+            .warning  {color:red;}   
+			/*1、附带 id 属性的 p元素的样式 ：边框 ：1px 实线 红色*/
+			p[id]{border:1px solid red;}
+			/*2、附带 id 属性，并且值为 summary 的p元素的样式 ：pink 色的背景*/
+			p[id="summary"]{background:pink;}
+			/*3、附带 class 属性，并且属性值中包含 warning 单词的 p元素的样式：字体大小为20pt*/
+			p[class~=warning]{font-size:20pt;}
+			/*4、附带 title 属性，并且属性值以f开始的 p元素的样式：字体大小为15pt*/
+			p[title^=f]{font-size:15pt;}
+			/*5、附带 title 属性，并且属性值中包含con的 p元素的样式：字体大小为20pt*/
+			p[title*=con]{font-size:20pt;}
+			/*6、附带 title 属性，并且属性值以rd结束的 p元素的样式：字体大小为25pt*/
+			p[title$=rd]{font-size:25pt;}
+        </style>
+    </head>
+    <body>
+        <!--属性选择器-->
+        <p id="intro">带有 id 属性的段落</p>
+        <p id="summary">id 属性的值为 summary 的段落</p>
+        <p class="important warning">class 属性的值为单词列表，且其中有 warning 的段落</p>
+        <p language="en-us">语言为 en-us 的段落</p>
+        <p title="first">title 属性的值为 first 的段落</p>
+        <p title="second">title 属性的值为 second 的段落</p>
+        <p title="third">title 属性的值为 third 的段落</p>
+
+
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			#d1 div{
+				width:200px;
+				height:200px;
+				background:red;
+				float:left;
+			}
+			#d1 div:nth-child(2){
+				background:green;
+			}
+			#d1 div:nth-child(3){
+				background:blue;
+			}
+			#d1{
+				border:1px solid #333;
+			}
+			#d1:after{
+				content:"";
+				display:block;
+				clear:both;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			<div></div>
+			<div></div>
+			<div></div>
+			<!-- <p style="clear:both;"></p>-->
+			<!--
+				1、块级元素
+				2、父元素中的最后一个子元素
+				3、必须设置 clear 属性
+			-->
+		</div>
+	</body>
+</html>

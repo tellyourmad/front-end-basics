@@ -1,0 +1,130 @@
+正课:
+1. 修改: 
+    样式：
+2. 遍历:
+3. 插入,删除,替换
+4. 事件: 
+
+1. 修改: 
+    样式: 1. 修改css属性: $(...).css()
+             2. 修改class: 
+               $(...).addClass()  $(...).removeClass() $(...).hasClass()
+               $(...).toggleClass("类名"): 在有或没有指定类名之间切换。
+
+2. 遍历节点: 节点间关系
+    1. 父子关系:
+       $(...).parent()
+       $(...).children([selector]) 只获得直接子元素
+       $(...).find(selector) 获得所有子代元素
+        强调: children可不加selector，但find必须加selector
+    2. 兄弟关系:
+       $(...).next([selector])  下一个兄弟元素
+       $(...).prev([selector])  前一个兄弟
+          强调: 如果加selector，必须满足:
+            1. 必须是相邻，2. 必须满足selector的要求
+       $(...).siblings([selector]) 其它兄弟
+
+3. 添加，删除，替换: 
+  添加: 
+   DOM: 3步: 
+       1. 创建空元素对象，
+       2. 设置关键属性, 
+       3. 添加到父元素下
+   jq: 2步:  
+      1. 创建节点: var $elem=$("完整html元素代码段");
+      2. 将节点添加到指定父元素下: 
+          追加: $(parent).append($elem); 追加到parent下的所有子节点末尾——appendChild
+          插入: $(parent).prepend($elem); 作为parent下的第一个子节点插入
+                   $(child).after($elem); 插入到child之后
+                   $(child).before($elem); 插入到child之前
+
+   删除: $(要删除的元素).remove();
+       强调: 删除时，不必查找父元素
+
+   替换和复制(clone):
+   替换:  $(old).replaceWith(新元素)
+             $(新元素).replaceAll(old)
+   复制: var $clone=$(...).clone()  
+      浅克隆: 仅复制普通属性，不复制事件处理函数
+                               $(...).clone(true)
+      深克隆: 不但复制普通属性，而且还复制事件处理函数
+
+总结: jQuery是对DOM操作的终极简化函数库
+        学jQuery，其实还是在学DOM
+   查找——选择器
+   修改:
+      属性: attr()   prop()
+      内容: html()   text()   val()   empty()
+      样式: css()  
+          addClass()   removeClass()  hasClass() toggleClass()
+   添加: 2步:
+     1. 创建: var $elem=$(html代码段)
+     2. 追加: $(parent).append($elem); ...
+   删除: remove();
+   克隆: clone([true])
+以上是jQuery的核心和本质
+以下是jQuery的扩展部分: 1. 事件绑定，2.动画, 3.AJAX封装
+
+4. 事件处理: 
+   鄙视题: jQuery有几种绑定事件处理函数的方法，有什么区别:
+   1. $(...).bind("事件名",fn)->addEventListener
+           特点: 为同一个元素的事件处理函数绑定多个函数对象
+       $(...).unbind("事件名",fn)->removeEventListener
+           强调: 如果有可能移除事件处理函数，则绑定时，必须用有名的函数绑定，不能用匿名函数。
+           重载1:  不带任何参数: 移除元素上所有事件处理函数绑定
+           重载2: 只带一个事件名称参数: 移除元素上指定事件名称绑定的所有函数对象
+           重载3: 带两个参数: 仅移除事件元素上指定事件名称绑定的执行的一个函数对象。
+
+   问题: 只能为页面上现有的元素绑定事件
+            动态新添加的元素无法自动绑定事件处理函数
+   解决: delegate
+  2. 事件代理: 让指定父元素下，所有符合要求的子元素，都能使用事件处理函数。（包括已有的元素和新生成的元素）
+      原理: 利用冒泡: 
+          1. 仅将事件处理函数绑定在父元素上一次
+          2. 获得目标元素: e.target
+          3. 仅响应符合条件的元素的事件
+      优: 减少事件监听的个数
+           可让后生成的新元素自动响应事件
+      何时: 只要希望一个父元素下指定的所有子元素都能响应事件时
+      如何使用: 
+       $(parent).delegate("selector","事件名",fn)
+          将事件绑定到parent上（利用冒泡）
+             只有符合selector条件的元素才能响应事件
+           其中: fn: function(e){e.target//获得目标元素}
+       $(parent).undelegate("selector","事件名",fn)
+
+  delegate vs bind: 
+   1. 优化: 创建事件监听对象的个数
+      delegate: 仅在父元素创建一个事件监听，所有子元素公用
+      bind: 为每个子元素分别创建事件监听
+   2. 效果: 
+      delegate: 新生成的子元素也可自动共享父元素的事件
+      bind: 新生成的子元素无法自动获得事件处理函数
+     
+ 3. 一次性事件: $(...).one("事件名",fn)
+        只能执行一次事件处理函数，执行后，自动解除绑定 
+
+ 4. $(...).live("事件名",fn), 本质:同delegate
+       问题: 极端，将所有元素的所有事件集中绑定到document
+     $(...).die("事件名",fn), 本质:同undelegate
+
+ 5. 终极简化: 
+    问题: 仅为一个元素绑定事件处理函数: bind
+             利用冒泡: delegate
+    解决: 统一成了on
+       1. 仅为一个元素绑定事件处理函数: 
+	$("target").on("事件名",fn)
+       2. 利用冒泡:
+                 $("parent").on("事件名","selector",fn)
+    解除绑定: off(...)
+
+ 6. 简写: $(...).事件名(function(){...})
+       问题: 仅少量常用的事件，可简写
+              如果遇到无法简写的事件，就要用on
+
+
+
+
+
+
+

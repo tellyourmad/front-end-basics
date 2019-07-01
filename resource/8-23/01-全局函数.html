@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			function testFun(){
+				/*
+				//1、声明一个 url
+				var url="http://www.baidu.com/s?wd=减肥";
+				//2、对 url 进行编码
+				url = encodeURI(url);
+				console.log("转码后："+url);
+				//3、对 url 进行解码
+				url = decodeURI(url);
+				console.log("解码后："+url);
+				*/
+
+				var str = prompt("输入一段JS脚本字符串：");
+				//console.log(str);
+				eval(str);//计算并执行字符串表示的JS代码
+			}
+		</script>
+		<button onclick="testFun()">测试</button>
+	</body>
+</html>

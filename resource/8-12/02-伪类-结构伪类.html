@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			/*#tbl td:first-child,#tbl td:last-child{
+				background:red;
+			}
+
+			#tbl tr:nth-child(2) td:nth-child(2){
+				background:green;
+			}*/
+
+			/*否定伪类：获取 每行中 除第一列以外的其他列*/
+			#tbl td:not(:first-child):not(:last-child){
+				background:red;
+			}
+		</style>
+	</head>
+	<body>
+		<table id="tbl">
+			<tr>
+				<td>张无忌</td>
+				<td>张三丰</td>
+				<td>张翠山</td>
+				<td>殷素素</td>
+			</tr>
+			<tr>
+				<td>张无忌</td>
+				<td>张三丰</td>
+				<td>张翠山</td>
+				<td>殷素素</td>
+			</tr>
+			<tr>
+				<td>张无忌</td>
+				<td>张三丰</td>
+				<td>张翠山</td>
+				<td>殷素素</td>
+			</tr>
+		</table>
+	</body>
+</html>

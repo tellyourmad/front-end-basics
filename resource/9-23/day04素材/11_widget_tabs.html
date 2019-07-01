@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<link rel="stylesheet" href="jquery-ui-1.11.4/jquery-ui.css">
+ </head>
+ <body>
+  <h1>jQueryUI：Widgets —— Tabs</h1>
+	<h3>标签页组件</h3>
+	<!--div#my-tabs>(ul>li*3>a)+(div#tc>p>lorem)*3-->
+  <div id="my-tabs">
+    <ul>
+      <li><a href="#tc10">十元套餐</a></li>
+      <li><a href="#tc20">二十元套餐</a></li>
+      <li><a href="#tc30">三十元套餐</a></li>
+    </ul>
+    <div id="tc10">
+      <p>十元套餐：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus tempora tenetur neque quisquam debitis quam laboriosam mollitia blanditiis veritatis sint architecto repudiandae alias repellendus minus autem voluptatem ducimus similique animi.</p>
+    </div>
+    <div id="tc20">
+      <p>二十元套餐：Accusamus saepe nemo beatae sequi nisi quaerat fugiat ea nulla? Tempore reiciendis ratione vitae cupiditate ducimus fugit iusto maxime dolore ex impedit blanditiis tempora! Debitis nisi saepe officiis ipsam tempore.</p>
+    </div>
+    <div id="tc30">
+      <p>三十元套餐：A quod pariatur repellendus hic at eum atque culpa amet totam deleniti. Excepturi iusto nam est eum in saepe et aspernatur distinctio minima facere impedit dolores nesciunt at. Velit nam.</p>
+    </div>
+  </div>
+
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="jquery-ui-1.11.4/jquery-ui.js"></script>
+	<script>
+    $("#my-tabs").tabs();
+	</script>
+ </body>
+</html>

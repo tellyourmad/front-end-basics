@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			function printNum(){
+				var i = 1;
+				for(;;i++){
+					console.log(i);
+					if(i == 100){
+						break;
+					}
+				}
+			}
+				
+			/**1~100之间所有的数字累加*/
+			function getSum(){
+				for(var i=1,sum=0;i<=100;i++){
+					sum+=i;
+				}
+				console.log(sum);
+			}
+
+			/*打印 1 ~ 100之间，不是 5  的倍数的数字*/
+			function printNum5(){
+				for(var i=1;i<=100;i++){
+					if(i%5==0){
+						break;
+					}
+					console.log(i);
+				}
+			}
+
+			function testContinue(){
+				for(var i=1;i<=10;i++){
+					switch(i){
+						case 1:
+							console.log("第一次循环");
+							break;
+						case 2:
+							console.log("第二次循环");
+							continue;
+						case 3:
+							console.log("第三次循环");
+							break;
+					}
+				}
+			}
+
+			testContinue();
+		</script>
+	</body>
+</html>

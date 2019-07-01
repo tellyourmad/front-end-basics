@@ -1,0 +1,22 @@
+function getFocus(txt){
+  //设置txt的class为txt_focus
+  //找到旁边的div,清除其class
+}
+function valiName(txt){
+//定义正则reg,10个以内的字母，数字或下划线的组合，不可不填
+//调用vali，传入txt和reg作为参数，返回调用的结果
+}
+function vali(txt,reg){
+  //清除txt的class
+  //找到旁边的div
+  //如果用reg，验证txt的value，通过
+    //设置div的class为vali_success
+    //返回true
+  //否则
+    //设置div的class为vali_fail
+    //返回false
+}
+function valiPwd(txt){
+//定义正则reg,6位数字
+//调用vali，传入txt和reg作为参数，返回调用的结果
+}

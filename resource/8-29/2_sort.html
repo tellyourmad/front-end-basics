@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var arr=[12,3,23,2,123,1];
+      //Step1: 定义比较器函数
+      //function cmp(a,b){return a-b;};
+      //function cmp(a,b){return -(a-b);};
+      //Step2: 将比较器函数作为参数传入sort方法
+      arr.sort(cmp);
+      console.log(String(arr));
+    </script>
+  </body>
+</html>

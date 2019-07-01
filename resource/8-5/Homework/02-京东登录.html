@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			body{
+				background-color:#F2F2F2;
+			}
+			
+			#txtName,#txtPwd{
+				/*宽度，高度，边框，背景图像，右内边距*/
+				width:307px;
+				height:26px;
+				border:1px solid #ccc;
+				background:#fff url(../Images/user.jpg) no-repeat 98% center;
+				padding:0 16px 0 5px;
+				box-sizing:border-box;
+			}
+			#txtPwd{
+				background-image:url(../Images/pwd.jpg);
+			}
+
+			#btnLogin{
+				/*宽度，高度，背景相关*/
+				width:307px;
+				height:34px;
+				background:url(../Images/login_all_bg.png) no-repeat 0 -61px;
+				/*取消边框*/
+				border:0;
+			}
+			#btnLogin:hover{
+				background-position:0 -95px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<table>
+				<tr>
+					<td rowspan="7">
+						<img src="../Images/jd_show.png">
+					</td>
+					<td>
+						邮箱/用户名/已验证手机
+						<br>
+						<input id="txtName">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						密码
+						<br>
+						<input type="password" id="txtPwd">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button id="btnLogin"></button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

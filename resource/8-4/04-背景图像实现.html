@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			#txtName{
+				/*高度*/
+				height:25px;
+				padding:2px 0;
+				border:1px solid #ccc;
+				/*背景 及其相关属性*/
+				background-image:url(Images/user.png);
+				background-repeat:no-repeat;
+				background-position:0 center;
+				/*左内边距*/
+				padding-left:23px;
+			}
+			#txtName:focus{
+				background-image:url(Images/pwd.png);
+			}
+
+			#jinghua{
+				width:33px;
+				height:18px;
+				/*设置背景图像*/
+				background-image:url(Images/iconlist_1.png);
+				background-repeat:no-repeat;
+				background-position:-243px -112px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="jinghua"></div>
+		<p>
+			用户名称：
+			<input id="txtName" />
+		</p>
+	</body>
+</html>

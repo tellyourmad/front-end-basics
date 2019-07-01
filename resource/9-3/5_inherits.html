@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      function Student(name,age){
+        this.name=name;
+        this.age=age;
+      }
+     var father={bal:1000000000,car:"infiniti",}
+      Student.prototype=father;
+      Student.prototype.toString=function(){
+        return "{name:"+this.name+
+                ", age:"+this.age+
+                ", bal:"+this.bal+
+                ", car:"+this.car+"}";
+      }
+      var lilei=new Student("Li Lei",11);
+      var hmm=new Student("Han Meimei",12);
+      console.log(lilei.toString());
+      console.log(hmm.toString());
+      //Object.setPrototypeOf(hmm,father);
+      //hmm.__proto__=father;
+      //console.log(lilei.toString());
+      //console.log(hmm.toString());
+    </script>
+  </body>
+</html>

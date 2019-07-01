@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <button onclick="doubleBall()">机选</button>
+    <script>
+      function doubleBall(){
+        var reds=[];//声明空数组reds
+        //只要reds的元素个数<6，就反复执行:
+        while(reds.length<6){
+          //在1~33之间生成随机整数r
+          var r=Math.floor(Math.random()*33+1);
+          //遍历reds中每个元素
+          for(var i=0;i<reds.length;i++){
+            //如果当前元素等于r,就退出循环
+            if(reds[i]==r){break;}
+          }//(遍历结束)
+          //如果i等于reds的元素个数时
+          if(i==reds.length){
+            reds.push(r);//将r压入reds
+          }
+        }//(循环结束)
+        //将reds按数字升序排列
+        function cmp(a,b){return a-b;}
+        reds.sort(cmp);
+        //在1~16之间生成随机整数blue
+        var blue=Math.floor(Math.random()*16+1);
+        //弹出提示： reds转为字符串，用逗号分隔，再拼个|，再拼blue
+        alert(String(reds)+" | "+blue);
+      }
+    </script>
+  </body>
+</html>

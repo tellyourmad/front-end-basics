@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			/*1、设置body的背景颜色*/
+			body{
+				background-color:#F2F2F2;
+			}
+
+			/*2、设置 table的 边框，宽度，背景*/
+			#register{
+				border:1px solid #ddd;
+				width:990px;
+				background-color:#fff;
+			}
+
+			/*3、设置 #register 下 class 为 w260的 input 元素*/
+			#register input.w260,#register input.w130{
+				/*宽度，高度*/
+				width:260px;
+				height:40px;
+				/*边框，取消轮廓*/
+
+				border:1px solid #ccc;
+				outline:0;
+			}
+			#register input.w130{
+				width:130px;
+			}
+			#register button{
+				/*宽度，高度，背景颜色*/
+				width:110px;
+				height:36px;
+				background-color:#ddd;
+				border:0;
+			}
+			
+			#btnRegister{
+				/*宽度，高度，背景颜色，边框倒角，文字颜色*/
+				width:260px;
+				height:34px;
+				background-color:#E43E42;
+				border-radius:5px;
+				color:#fff;
+				border:0;
+			}
+		</style>
+	</head>
+	<body>
+		<table id="register">
+			<tr>
+				<td>用户名：</td>
+				<td>
+					<input class="w260" name="txtName">
+				</td>
+				<td>4-20位字符、支持汉字-组合</td>
+				<td rowspan="7">
+					<img src="images/phone-bg.jpg">
+				</td>
+			</tr>
+			<tr>
+				<td>用户名：</td>
+				<td>
+					<input class="w260" name="txtName">
+				</td>
+				<td>4-20位字符、支持汉字-组合</td>
+			</tr>
+			<tr>
+				<td>用户名：</td>
+				<td>
+					<input class="w260" name="txtName">
+				</td>
+				<td>4-20位字符、支持汉字-组合</td>
+			</tr>
+			<tr>
+				<td>用户名：</td>
+				<td>
+					<input class="w260" name="txtName">
+				</td>
+				<td>4-20位字符、支持汉字-组合</td>
+			</tr>
+			<tr>
+				<td>短信验证码：</td>
+				<td valign="middle">
+					<input class="w130" name="txtName"><button>获取短信验证码</button>
+				</td>
+				<td>请再次输入密码</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input id="btnRegister" type="submit" value="立即注册">
+				</td>
+				<td></td>
+			</tr>
+		</table>
+	</body>
+</html>

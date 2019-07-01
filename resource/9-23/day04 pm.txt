@@ -1,0 +1,41 @@
+正课:
+1. ***自定义jQuery插件:
+    jQuery的全局方法
+   添加jQuery的对象方法——自定义插件
+
+1. jQuery  全局方法: 
+  jQuery库对象: window.jQuery=window.$=jQuery
+ 向jQuery库中添加全局方法: 2步:
+      1. jQuery.命名空间={}
+      2. jQuery.命名空间.方法名=function(){...}
+
+  原生js的全局方法  vs jQuery的全局方法
+  原生js的全局方法: 直接定义在window下，不需要任何对象即可直接访问。
+  jQuery的全局方法: 定义在jQuery对象内部，必须用jQuery对象才能调用
+
+2. 添加jQuery  对象方法: 
+   为所有jQuery查找结果对象添加的方法——插件
+   vs jQuery全局方法: 
+      全局方法: $.xxx.方法名()
+      对象方法: $(selector).方法名()
+   何时: 如果希望对查找结果对象调用方法时
+   如何定义: $(...)的原型对象是jQuery.fn
+
+鄙视题: $.each(arr,function(i,val){...}) 
+                 arr.forEach(function(val,i,arr){...})
+       vs  $(...).each(function(i,elem){...})
+   $.each()是jQuery全局方法，存储在jQuery全局对象上
+       主要用于遍历普通数组
+   $(...).each()是jQuery对象方法，存储在原型对象jQuery.fn上
+       主要用于对查询结果中的每个DOM元素执行操作
+
+3. 自定义jQuery插件: 
+    何时: 如果一个效果需要反复使用，就要封装为插件
+    优: 重复利用, 提高发开效率
+1. dropdown: 
+
+
+
+
+
+

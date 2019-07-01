@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			function printInfo(){
+				console.log("我是一个全局函数");
+			}
+
+			function printMyself(){
+				function printMsg(){
+					console.log("我是一个局部函数");
+				}
+
+				//调用 printMsg
+				printMsg();
+			}
+
+			//printMsg();//错误，无法调用局部函数
+			printMyself();
+		</script>
+	</body>
+</html>

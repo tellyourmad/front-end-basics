@@ -1,0 +1,79 @@
+正课:
+1. jQuery中基本操作: 操作元素
+
+1. 操作元素: 
+   属性(attr   prop)      
+     attr: 在开始标签中显式定义的属性
+        读: $("selector").attr("属性名")=>getAttribute("属性名")
+        改: $("selector").attr("属性名",值)
+	=>setAttribute("属性名",值);
+        问题: 无法访问不在开始标签中的内存中的prop属性
+            比如: checked   selected   disabled
+        解决: 
+     prop: 读取不在开始标签中定义的内存中的元素属性prop
+        两用: 
+        读: $("selector").prop("属性名")=>elem.属性名
+        改: $("selector").prop("属性名",值)
+
+     移除属性(了解):$(...).removeAttr("属性名")
+                                   =>removeAttribute("属性名");
+
+     总结: jquery中很多方法都是两用: 
+          如果不提供新值，就读取；如果提供新值，就修改
+
+  内容: 
+      html原文: 
+          读: $(...).html()                  elem.innerHTML
+          改: $(...).html('html片段')  elem.innerHTML='html片段'
+        简便: 清空元素内容: 
+           $(...).empty();                   elem.innerHTML="";
+      纯文本
+          读: $(...).text()                   elem.textContent/innerText
+          改: $(...).text('文本')  
+      表单元素的value        
+          读: $(...).val()
+          改: $(...).val(值)
+
+  样式: 
+    1. 直接操作CSS属性:
+        $(...).css("css属性名") => getComputedStyle()
+        $(...).css("css属性名",值) => elem.style.css属性名=值
+     总结: css()能读所有属性，但只能改内联样式中的属性
+        简化: 同时修改多个属性值
+        $(...).css({属性名1:值1, 属性名2:值2, ...})
+            强调: 属性名都要去横线变驼峰
+    2. 修改class属性: 
+       完整修改class属性: $(...).attr("class","类名")
+       追加class属性: $(...).addClass("类名")
+          class="cell" : $(...).addClass("n8")  => class="cell n8"
+       移除class属性: $(...).removeClass("类名")
+          class="cell n8": $(...).removeClass("n8")=>class="cell"
+       清除class: $(...).attr("class","")或$(...).removeClass();
+       判断是否包含指定class: $(...).hasClass("类名")
+          技巧: 因为class有时容易发生变化
+                    所以，如果class有可能发生变化时，尽量不要用class查找。
+             解决: 可使用自定义属性来保存固定值作为查找条件
+
+      练习: 补: 获得父元素: DOM: elem.parentNode
+                                                  elem.parentElement
+                                       jq: $(...).parent()
+                   获得兄弟元素: DOM: elem.nextElementSibling
+                                                  elem.previousElementSibling
+                                       jq: $(...).next();  $(...).prev();
+        过渡: transition
+           3步: 1. 定义开始样式: 同时定义transition属性
+                  2. 定义结束样式: 
+                  3. 用addClass将结束样式追加到class属性中
+
+
+
+
+
+
+
+
+
+
+
+
+  

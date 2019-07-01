@@ -1,0 +1,220 @@
+﻿1、框模型
+   1、框模型
+	    1、框
+				 页面元素皆为"框"
+			2、框模型
+				 框模型(Box Model)定义了元素框处理元素内容、内边距、外边距以及边框的方式
+
+				 width和height 指定内容区域的宽和高
+				 增加了内外边距、边框 不会影响内容区域的尺寸，有可能会增加元素框的总尺寸
+
+				 元素实际宽度=左右外边距 + 左右边框 +左右内边距 + width;
+
+				 元素实际高度=上下外边距 + 上下边框 +上下内边距 + height;
+	 2、外边距
+			1、什么是外边距
+				围绕在元素边框周围的空白区域，默认是不允许被其他元素所占据的。
+			2、作用
+				主要拉开元素与元素之间的距离
+			3、语法
+			   1、属性
+						margin:value;
+						单边设置
+						margin-top/right/bottom/left:value;
+
+						取值单位：
+						1、px 值
+						2、%
+						3、auto ：左右方向有效
+						4、负值 ：目的为移动元素
+				 2、取负值
+						让元素向反方向移动
+						通常只设置 
+						margin-top : 负值
+						margin-left: 负值
+				 3、auto
+						能够自动计算外边距(左右)
+						特点：控制非 行内元素 水平居中时使用
+						前提：必须设置元素宽度
+				 4、外边距的简便写法
+						margin:value;(四个方向外边距相同)
+						margin:v1 v2;v1 上下外边距 v2 左右外边距
+						margin:v1 v2 v3;v1 上外边距，v2 左右外边距，v3 下外边距
+						margin:v1 v2 v3 v4;上 右 下 左
+				 5、有默认外边距的元素
+				    body,h1,h2,h3,h4,h5,h6,p,ul,ol,pre,dl,dd 
+						具备默认外边距
+						通过 css重写(CSS Reset) 方式，改变默认外边距为 0
+				 6、特殊情况
+						1、外边距合并
+							当两个垂直外边距相遇时，它们将形成一个外边距
+							合并后的外边距的高度等于两个外边距中高度较大者的值
+						2、外边距溢出
+							子债父还
+							在某些特定情况下，给子元素设置外边距时，效果会作用在父元素上。
+							特定情况：
+								1、上下外边距 能产生溢出
+								2、父元素无边框，并且设置的是第一个元素的上外边距或最后一个元素的下外边距
+							解决方案：
+								1、为父元素增加边框
+								2、由父元素的内边距来取代子元素的外边距
+			4、注意
+				上下外边距 对行内元素 是不起作用的
+				上下外边距 对行内块元素 有特殊效果
+	 3、内边距
+			1、什么是内边距
+				内容区域与边框之间的距离
+				会扩大元素边框所占的区域
+			2、语法
+				1、属性
+					padding:value;
+					取值 可以为 像素px，百分比%
+					padding-top/right/bottom/left:val;
+				2、简写方式
+					padding:value;(四个方向内边距)
+					padding:v1 v2;(上下  左右)
+					padding:v1 v2 v3;(上 左右 下)
+					padding:v1 v2 v3 v4(上右下左)
+				3、注意
+					内边距的效果只能影响元素本身，并不会给其他元素带来影响效果
+2、背景属性
+		1、作用
+			背景颜色以及背景图像
+			注意：背景是从边框的位置处开始绘制的
+		2、背景属性
+			1、背景色
+				语法：background-color:value;
+				取值：
+					任意合法颜色值
+					transparent
+			2、背景图片
+				语法:background-image
+				取值:url(图片URL);
+			3、背景重复
+				语法:background-repeat
+				取值:
+					1、repeat ：默认值，即垂直又水平方向的重复
+					2、no-repeat : 不重复
+					3、repeat-x : 仅在水平方向重复
+					4、repeat-y ：仅在垂直方向重复
+			4、背景图片尺寸
+				语法：background-size
+				取值：
+					1、value1 value2
+						 宽度   高度
+					2、value1% value2%
+						 百分比
+					3、cover
+						 覆盖，将背景图像等比缩放，直到背景能够覆盖到元素的所有区域
+					4、contain
+						 包含，将背景图像等比缩放，直到背景图像碰到右边或下边时，停止缩放。
+			5、背景图片固定
+				语法：background-attachment
+				取值：
+					1、scroll，默认值，背景图会随着文档而滚动
+					2、fixed，背景图像固定，背景图不会随着文档而发生滚动
+			6、背景定位
+				1、作用
+					改变背景图像在元素中的位置
+				2、语法
+					属性：background-position
+					取值：
+						1、x y
+						   x 表示 水平偏移距离,取值为正，图像向右偏移，取值为负，图像向左偏移
+							 y 表示 垂直偏移距离，取值为正，图像向下偏移，取值为负，图像向上偏移
+						2、x% y%
+							 0% 0% : 原始位置
+							 100% 100% :右下角
+							 50% 50% : 正中间
+						3、关键字
+							 x ：left center right
+							 y ：top center bottom
+				3、CSS Sprites
+					CSS精灵
+					将若干幅小图像 拼合成 一幅大图像
+			7、背景属性
+				属性：background
+				取值：color url() repeat attachment position;
+
+				ex 
+				  background:red url(a.jpg) no-repeat fixed center center;
+
+					常用：
+					background:url() no-repeat position;
+
+					background:red;
+3、渐变
+	1 、作用
+		多个颜色之间，逐渐变换的效果
+	2、渐变分类
+		1、线性渐变
+		2、径向渐变
+		3、重复渐变
+			1、重复线性
+			2、重复径向、
+	3、重要元素
+		1、色标
+			每种颜色值 及其 出现的位置
+	4、渐变语法
+		1、属性
+			background-image
+			取值：
+				1、linear-gradient() : 线性渐变
+				2、radial-gradient() : 径向渐变
+				3、repeating-linear-gradient()
+					 重复线性渐变
+				4、repeating-radial-gradient()
+					 重复径向渐变
+		2、线性渐变
+			1、语法：
+					background-image:linear-gradient(angle,colo-point,color-point);
+					1、angle
+							方向 或 角度
+							取值：
+							1、to top  --> 0deg
+									从下向上填充颜色
+							2、to right --> 90deg
+									从左向右填充颜色
+							3、to bottom --> 180deg
+									从上向下填充颜色
+							4、to left --> 270deg
+									从右向左填充颜色
+					2、color-point
+								color position
+								ex:
+									red 0px
+									green 50%
+								注意：省略 位置 
+		3、径向渐变
+				1、语法
+					background-image:radial-gradient([size at position],color-point,color-point);
+					1、size at position
+						size ：半径大小
+						position ：圆心所在位置
+							0px 0px：圆心在元素左上角
+							50% 50%: 圆心在元素中间处
+							left bottom:圆心在元素坐下角
+						
+						ex:50px at center center
+		4、重复渐变
+			 repeating-linear-gradient();
+			 repeating-radial-gradient();
+
+			 注意：colo-point 颜色的位置 必须给 px为单位的数值。
+
+			 repeating-linear-gradient(to top,red 0px,yellow 20px,blue 50px);
+		5、浏览器兼容性
+			主流浏览器的新版本 肯定支持渐变
+			不支持的版本，尝试着加浏览器前缀
+			Firefox : -moz-
+			Chrome & Safari : -webkit-
+			Opear : -o-
+			IE : -ms-
+
+			background-image:-moz-linear-gradient();
+			background-image:-webkit-linear-gradient();
+			background-image:-o-linear-gradient();
+			background-image:-ms-linear-gradient();
+
+
+

@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      "use strict";//启用严格模式
+      var emp=
+        {id:1001,ename:"eric",salary:10000};
+      //修改emp对象的id属性为只读，且不可删除
+      //修改emp对象的salary属性为不可遍历
+    /*
+      Object.defineProperty(emp,"id",{
+	      writable:false,
+        configurable:false
+      });
+      Object.defineProperty(emp,"salary",{
+        enumerable:false,
+        configurable:false
+      });
+    */
+      Object.defineProperties(emp,{
+        id:{//直接量自动生成的属性，特性值为true
+          writable:false,configurable:false
+        },
+        salary:{
+          enumerable:false,configurable:false
+        },
+        gender:{//新属性,特性值为false
+          value:"male",
+          //writable:false,
+          enumerable:true,
+          //configurable:false,
+        }
+      });
+      //访问emp对象的新的gender属性的四大特性: 
+      var attrs=Object.getOwnPropertyDescriptor(
+        emp,"gender");
+      console.dir(attrs);
+      emp.gender="female";//改
+      //delete.emp.gender;//删
+      /*试图将writable再改回true
+      Object.defineProperty(emp,"id",{
+	      writable:true,
+        configurable:true
+      });
+      */
+      //emp.id=1002;//改
+      for(var key in emp){//遍历
+        console.log(key+":"+emp[key]);
+      }
+      //delete emp.id;//删
+      console.dir(emp);
+    </script>
+  </body>
+</html>

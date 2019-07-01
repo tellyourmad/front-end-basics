@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      function factory(){
+        var i=1;//受保护的变量
+        //操作受保护的变量的函数
+        return function(){ return i++; }
+      }
+      var icbc=factory();
+      //icbc: function(){(i=1) return i++; }
+      console.log(icbc());//1
+      console.log(icbc());//2
+
+      var abc=factory();
+      //abc: function(){(i=1) return i++; }
+      console.log(abc());//1
+      console.log(abc());//2
+    </script>
+  </body>
+</html>

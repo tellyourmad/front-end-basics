@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			/*1、打印1~100之间所有的数字*/
+			function print100(){
+				/*var i = 1;//表达式1
+				while(i<=100){//表达式2
+					console.log(i);//循环体
+					i++;//表达式3
+				}*/
+
+				for(var i = 1;i<=100;i++){
+					console.log(i);
+				}
+			}
+
+			/*2、打印1~100之间所有偶数的和*/
+			function printSum(){
+				var sum=0;
+				//1、条件 ：从1 开始 到100结束
+				//2、操作 ：判断 变量 是否 为 偶数，如果为偶数的话 则累加
+				for(var i=1;i<=100;i++){
+					if(i % 2 == 0){
+						sum+=i;
+					}
+				}
+				console.log(sum);
+			}
+		</script>
+		<button onclick="print100();">打印1~100之间所有的数字</button>
+		<button onclick="printSum();">打印1~100之间所有偶数和</button>
+	</body>
+</html>

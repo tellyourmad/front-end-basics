@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      //生产汇率计算器: 接收一个受保护的汇率
+      function factory(rate){
+        //返回一个函数作为计算器，函数可接收一个人民币的金额，并计算出目标货币的金额
+        return function(money){
+          return (money*rate).toFixed(2);
+        }
+      }
+      var rmb2$=factory(0.1639);
+      //rmb2$:(rate=0.1639)
+        //function(money){return money*rate;}
+      console.log(
+        rmb2$(1000),
+        rmb2$(5000)
+      );
+      var rmb2Euro=factory(0.1449);
+      //rmb2Euro:(rate: 0.1449)
+        //function(money){return money*rate;}
+      console.log(
+        rmb2Euro(1000),
+        rmb2Euro(5000)
+      );
+    </script>
+  </body>
+</html>

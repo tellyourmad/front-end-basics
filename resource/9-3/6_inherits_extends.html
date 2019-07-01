@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      function Flyer(name,speed){
+        this.name=name;
+        this.speed=speed;
+      }//Flyer.prototype
+      Flyer.prototype.fly=function(){
+        console.log(this.name+" 以时速 "+
+                     this.speed+" 飞行");
+      }
+      //new Plane    F16  1000   20
+      function Plane(name,speed,score){
+        //Plane中的this->指新对象
+        Flyer.call(this,name,speed);
+          //Flyer内部的this->指新对象
+          //新对象.name=name;F16
+          //新对象.speed=speed;1000
+        this.score=score;//20
+      }//Plane.prototype
+      //让Plane.prototype继承Flyer.prototype
+      Object.setPrototypeOf(
+        Plane.prototype,Flyer.prototype
+      );
+      Plane.prototype.getScore=function(){
+        console.log(
+          "击落敌机,得"+this.score+"分");
+      }
+      //new Bee()
+      function Bee(name,speed,award){
+        Flyer.call(/*Bee的*/this,name,speed);
+        this.award=award;
+      }
+      //让Bee.prototype继承Flyer.prototype
+      Object.setPrototypeOf(
+        Bee.prototype,Flyer.prototype
+      );
+      Bee.prototype.getAward=function(){
+        console.log(
+          "击落蜜蜂,奖励 "+this.award);
+      }
+      var f16=new Plane("F16",1000,20);
+      var bee=new Bee("小蜜蜂",50,"1 life");
+      f16.fly(); bee.fly();
+      f16.getScore(); bee.getAward();
+    </script>
+  </body>
+</html>

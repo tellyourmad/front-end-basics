@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      function Student(name,age){
+        this.name=name;
+        this.age=age;
+      }//prototype->Student.prototype
+      Student.prototype.intr=function(){
+        console.log("I'm "+this.name+
+                    ",I'm "+this.age+
+                   ",I'm from "+this.className);
+      }
+      Student.prototype.toString=function(){
+        return "{name:"+this.name+
+                ", age:"+this.age+"}"
+      }
+      Student.prototype.className="初一2班";
+      var lilei=new Student("Li Lei",11);
+      var hmm=new Student("Han Meimei",12);
+      lilei.intr(); hmm.intr();
+      console.log(lilei.intr==hmm.intr);
+      Student.prototype.className="初二2班";
+      lilei.intr(); hmm.intr();
+    /*错误的做法
+      //lilei.className="初三2班";
+      //后果: 为lilei添加自有成员className
+      //从此lilei和原型中的className无关
+      //Student.prototype.className="高一2班";
+      //lilei.intr(); hmm.intr();
+    */
+      function checkProp(obj,pname){
+        //如果pname是obj的自有属性
+        if(obj.hasOwnProperty(pname)){
+          return "自有";//返回"自有"
+        }else if(pname in obj){
+        //否则，如果pname在obj的原型链上
+          return "共有";//返回"共有"
+        }else{//否则
+          return "没有";//返回"没有"
+        }
+      }
+      console.log(
+        checkProp(lilei,"name"),//自有
+        checkProp(lilei,"intr"),//共有
+        checkProp(lilei,"length")//没有
+      );
+
+      console.log(lilei.toString());
+    </script>
+  </body>
+</html>

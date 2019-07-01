@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			function printMsg(){
+				//1、用户先输入内容，直到输入 exit 为止 否则 打印信息
+				do{
+					//1、声明变量，让用户输入信息
+					var msg = prompt("请输入数据：");
+					//2、如果是 exit 给出退出提示
+					if(msg == "exit"){
+						console.log("输入结束!!!");
+					}else{
+						console.log(msg);
+					}
+				}while(msg!="exit");
+			}
+		</script>
+		<button onclick="printMsg();">循环打印信息</button>
+	</body>
+</html>

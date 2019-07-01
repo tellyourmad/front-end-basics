@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			function calDays(){
+				//1、定义 year，month，day，totalDays
+				var year,month,day,totalDays=0;
+				//2、赋值
+				year=Number(prompt("请输入年份:"));
+				month=Number(prompt("请输入月份:"));
+				day=Number(prompt("请输入日:"));
+				//3、计算 year 是否为 闰年 保存在 isRun
+				//闰年：能被4整除，但不能被100整除 或 能被400整除
+				var isRun = (year%4==0&&year%100!=0)||(year%400==0);
+				//*****************************
+				//将 输入月份(month)之前的月份天数进行累加
+				//循环条件：假如month=10，循环9次
+				var i=1;//表示 1月
+				while(i<month){
+					switch(i){
+						case 1:
+						case 3:
+						case 5:
+						case 7:
+						case 8:
+						case 10:
+							totalDays+=31;
+							break;
+						case 4:
+						case 6:
+						case 9:
+						case 11:
+							totalDays += 30;
+							break;
+						case 2:
+							totalDays+=28;
+							if(isRun)
+								totalDays++;
+							break;
+					}
+					i++;
+				}
+				//累加 day 到 totalDays 的后面
+				totalDays += day;
+				console.log(totalDays);
+			}
+		</script>
+		<button onclick="calDays();">计算年月日</button>
+	</body>
+</html>

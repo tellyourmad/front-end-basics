@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			#d1,#d2{
+				width:200px;
+				height:200px;
+				border:1px dotted #000;
+				/*绝对定位*/
+				position:absolute;
+				top:150px;
+				left:400px;
+			}
+			#d2{
+				border:1px solid #f00;
+				background:#ccc;
+				opacity:0.7;
+			}
+
+			/*转换效果*/
+			#d2{
+				/*1、位移*/
+				/*transform:translate(50px,50px);*/
+
+				/*2、缩放*/
+				/*transform:scale(-2);*/
+
+				/*3、旋转*/
+				/*transform:translate(50px) rotate(45deg);*/
+				/*改变转换原点*/
+				/*transform-origin:left top;*/
+				/*旋转*/
+				/*transform:rotate(45deg);*/
+
+				/*4、倾斜*/
+				transform:skewX(0deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">参考元素</div>
+		<div id="d2">转换元素</div>
+	</body>
+</html>

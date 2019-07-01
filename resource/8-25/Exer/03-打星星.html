@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			function printStar(){
+				for(var j=1;j<=5;j++){ //j 行数
+					var str = "";
+					//打印 空格 
+					for(var k=1;k<=(5-j);k++){
+						str+=" ";
+					}
+					//打印 * 的循环
+					for(var i=1;i<=(2*j-1);i++){ //i 星星数
+						str+="*";
+					}
+					console.log(str);
+				}
+			}
+
+			printStar();
+		</script>
+	</body>
+</html>

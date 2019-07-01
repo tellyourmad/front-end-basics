@@ -1,0 +1,50 @@
+赵旭
+zhaoxu@tedu.cn
+邮件：
+  1、问题描述
+  2、问题截图
+  3、源码
+
+WEB前端
+ 1、英文能力
+    red,blue,yellow
+ 2、打字能力
+ 3、动手能力
+
+ 课程体系：
+ 1、基础
+    1、HTML5Basic
+    2、CSS3Basic
+    3、CSS3Core
+    4、JSBasic
+ 2、核心
+    1、JSCore
+    2、DOM(Document Object Model)
+    3、jQuery
+ 3、服务器端&HTML5
+    1、SERVER&HTTP
+    2、AJAX
+    3、HTML5CORE
+ 4、高端框架
+    1、BOOTSTRAP
+    2、ANGULARJS
+    3、WEBAPP
+    4、PHONEGAP
+
+学习方法：
+    1、课堂上 
+       听讲为主
+       记关键性笔记
+    2、课堂下
+       预习后天课程
+       复习当天课程
+    3、多练，多背，多理解
+
+
+
+
+
+
+
+
+

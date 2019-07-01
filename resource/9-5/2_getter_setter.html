@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var emp={id:1001,name:"eric"};
+      (function(){
+        var _age=25;
+        Object.defineProperty(emp,"age",{
+          set:function(val){
+            console.log(
+              "调用age属性的set方法,验证"+val);
+            //在赋值时，自动接收等号右侧的值
+            if(val>=18&&val<=65){
+              _age=val;
+            }else{
+              throw new Error(
+                "年龄必须介于18~65之间")
+            }
+          },
+          get:function(){
+            console.log(
+              "调用age属性的get方法,返回"+_age);
+            //专门负责返回受保护的属性值
+            return _age;
+          }
+        });
+      })();
+      //试图通过访问器属性age，获得受保护的_age属性的值
+      console.log(emp.age);
+      emp.age++;
+      console.log(emp.age);
+      emp.age=-2;//报错
+      emp._age=-2;//绕过访问器属性，直接访问受保护的数据属性
+      console.log(emp.age);//依然是26
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			function getMoney(){
+				//1、定义输入变量 : 单价(price),数量(count),收款金额(money)
+				var price,count,money;
+				//2、定义输出变量 : 应收金额/产品总价(total),找零(change)
+				var total,change;
+				//3、为 单价(price)和数量(count)赋值
+				price = Number(prompt("请输入单价:"));
+				count = Number(prompt("请输入数量:"));
+				//4、计算应收金额(total)=单价(price)*数量(count),打印在控制台
+				total=price * count;
+
+				//**********判断 total 是否 大于等于 500，满足条件 打8折
+				/**
+					if(条件){
+						语句块;
+					}
+				*/
+				if(total>=500){
+					console.log("您消费已超过500，可以打8折.");
+					total *= 0.8;
+				}
+
+
+
+				console.log("您共消费:"+total+"元");
+				//5、为 收款金额(money)赋值 
+				money = Number(prompt("请输入收款金额:"));
+
+
+				/********判断 money 与 total 之间的关系，如果money<total,给出提示，否则正常计算找零*/
+				if(money<total){
+					console.log("对不起，余额不足!");
+				}else{
+					//6、根据 收款金额(money)与应收金额(total),计算找零(change),控制台打印输出找零
+					change = money - total;
+					console.log("找零:"+change+"元");
+				}
+			}
+		</script>
+		<button onclick="getMoney();">启动!</button>
+	</body>
+</html>

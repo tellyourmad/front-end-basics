@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var str="No zuo no die No can no bibi";
+      //获取str中所有和正则匹配的关键词内容
+      //返回包含多个关键词的数组
+      //如果找不到，返回null
+      //g: 表示查找全部。不写，仅找一个
+      //i: 表示忽略大小写。不写，区分大小
+      var kwords=str.match(/no/ig);
+      console.log(String(kwords));
+
+      var msg=prompt("输入消息:");
+      var kwords=msg.match(/[我卧][艹槽操草]/);
+      //kwords[0:"关键词",index:i]
+      if(kwords!=null){
+        alert("在位置"+kwords.index
+            +"发现敏感词"+kwords[0]);
+      }else{
+        alert("clear! 可以发布");
+      }
+    </script>
+  </body>
+</html>

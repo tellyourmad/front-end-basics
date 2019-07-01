@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			/*1、工资级别*/
+			//1、提示用户输入数字，并转换成整数
+			/*var salary = parseInt(prompt("请输入您的工资:"));
+			//2、判断工资级别，使用 条件运算符
+			var level=salary>=20000?"高工资":(salary>=8000?"中高工资":"普通工资");
+			window.alert(level);*/
+		</script>
+
+		<script>
+			/*2、计算可莱托指数*/
+			//1、接收用户输入的 身高 ,保存变量 height中
+			var height = Number(prompt("请输入您的身高:"));
+			//2、接收用户输入的 体重 ,保存在变量 weight中
+			var weight = Number(prompt("请输入您的体重 :"));
+			//3、计算可莱托指数 clt = weight/(height*height)
+			var clt = weight/(height*height);
+			console.log(clt);
+			//4、判断clt的范围 ，给出提示
+			var result = clt<20?"偏瘦":(clt>25?"偏胖":"正常");
+			console.log("您的体重："+result);
+		</script>
+	</body>
+</html>

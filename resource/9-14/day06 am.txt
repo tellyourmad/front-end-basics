@@ -1,0 +1,109 @@
+回顾:
+1. 定时器: 
+   1. 任务函数:
+       周期性: 任务函数结尾可能需要判断临界值，自动停止
+   2. 启动定时器:
+      周期性: timer=setInterval(任务函数,interval);
+      一次性: timer=setTimeout(任务函数,wait);
+   3. 停止定时器:
+      周期性: clearInterval(timer);  timer=null
+      一次性: clearTimeout(timer); timer=null
+
+  动画: 
+     DISTANCE   DURATION   STEPS
+     step   interval
+     timer  moved
+     start(): setInterval(moveStep.bind(this),interval);
+     moveStep(): 将主角移动一个step
+                          在moveStep结尾，判断临界值，自动停止
+
+2. BOM常用对象: 
+   history.go(n)
+
+   location:
+      属性: 
+         href,  protocol, host, hostname,port,  pathname, hash, search
+      方法: 
+         1. 在当前窗口打开新连接，可后退:
+           location="url";
+           location.href="url";
+           location.assign("url");
+         2. 在当前窗口打开,不可后退:
+           location.replace("url");
+         3. 重新加载当前页面:
+           location.reload(false/true)
+
+   navigator: 
+     cookieEnabled   
+     plugins
+     userAgent
+
+正课: 
+1. ***event:
+   
+1. 什么是事件: 用户手动触发的或浏览器自动触发的页面或元素状态的改变。
+    所有事件: https://developer.mozilla.org/en-US/docs/Web/Events
+    当事件发生时，浏览器会自动调用事件处理函数:
+       事件处理函数: 当事件发生时，自动调用的函数
+                             on事件名 ——其实就是一个元素的特殊属性
+                                                    特殊: 需要绑定一个函数
+       如何绑定事件处理函数: 3种:
+         1. 在元素的开始标签中绑定: 
+             <button onclick="js语句(this)"></button>
+                  button.onclick=function(){//this->button
+                      eval("js语句(this)")
+                  }
+               当单击按钮时:  button.onclick()
+            问题: 不符合内容与行为分离的原则，不便于维护
+            解决: 
+         2. 在js中为元素的事件处理函数属性赋值:
+             btn.onclick=function(){//this->button
+                 ...
+             }
+             问题: 一个事件处理函数属性，只能绑定一个函数对象
+             解决: 
+          3. 使用API添加事件监听:
+             btn.addEventListener("事件名",函数对象)
+             btn.removeEventListener("事件名",函数对象)
+             优: 1. 同一事件处理函数属性同时可绑定多个函数对象
+                  2. 可移除绑定的函数对象
+                  3. 可改变事件触发的顺序
+   事件周期: 
+      DOM: 3个阶段: 
+         1. 捕获: 从最外层元素，向内层元素，逐个记录绑定的事件处理函数。默认,暂不触发任何事件。
+         2. 目标触发:  优先触发目标元素上绑定的事件处理函数
+                目标元素: 实际点击的元素
+         3. 冒泡: 按照捕获的顺序,由内层，向外层逐层触发捕获的事件处理函数
+      修改事件触发的顺序: 
+         btn.addEventListener("事件名",函数对象,capture)
+            其中:capture表示是否在捕获阶段就提前触发
+                       默认false, 只在冒跑阶段才触发
+                       改为true, 在捕获阶段提前触发
+   
+   事件对象: event
+       事件发生时，自动创建的，封装事件信息的对象
+       还提供了对事件进行操作的API
+       获得event对象: 
+           DOM: 事件发生时，会自动创建event对象
+                      会将event对象作为事件处理函数的第一个参数自动传入。
+      阻止冒泡: e.stopPropagation();
+      利用冒泡:
+         优化: 尽量少的创建事件监听对象
+                  事件监听对象容易形成闭包，很难释放
+         解决: 如果多个平级子元素需要绑定相同的事件处理函数时，只要在父元素上绑定一次即可。所有子元素共用
+         核心问题: 
+             1. 如何获得目标元素: e.target
+             2. 屏蔽不需要的元素的干扰
+
+   取消事件(阻止默认行为): 当事件执行过程中，遇到问题，可取消事件。不再触发
+      如何: e.preventDefault();
+
+     练习: form对象: 事件: onsubmit  当提交前触发
+     
+
+
+
+
+
+
+

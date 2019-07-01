@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			function phoneBank(){
+				var msg = "查询请按1\n取款请按2\n转账请按3\n退出请按0";
+				while(true){
+					//1、要求用户输入数字
+					var choice=prompt(msg);
+					//2、判断 用户输入的数字
+					switch(choice){
+						case "1":
+							alert("查询中...");
+							break;//退出 switch
+						case "2":
+							alert("取款中...");
+							break;//退出 switch
+						case 3:
+							alert("转账中...");
+							break;//退出 switch
+						case "0":
+							alert("退出系统...");
+							break;//退出 switch
+						default:
+							alert("输入有误...");
+					}
+					//3、判断 choice 是否为 0
+					if(choice == "0"){
+						break;//退出 while 循环
+					}
+				}
+			}
+
+			function phoneBank1(){
+				var msg = "查询请按1\n取款请按2\n转账请按3\n退出请按0";
+				// 当用户输入的数据为0时，结束循环
+				// 当用户输入的数据不为0是，则继续循环 
+				var choice="";
+				while((choice=prompt(msg)) != "0"){
+					//2、判断 用户输入的数字
+					
+					switch(choice){
+						case "1":
+							alert("查询中...");
+							break;//退出 switch
+						case "2":
+							alert("取款中...");
+							break;//退出 switch
+						case 3:
+							alert("转账中...");
+							break;//退出 switch
+						case "0":
+							alert("退出系统...");
+							break;//退出 switch
+						default:
+							alert("输入有误...");
+					}
+				}
+			}
+
+			function guess(){
+				//1、循环外-生成一个随机数
+				var r = parseInt(Math.random()*100);
+				console.log(r);
+				//2、循环内-进入猜数字环节
+					//条件：
+						//方式1：死循环 
+						//方式2：用户猜对时退出，没猜对则继续
+					//操作(方式1)
+						//1、提示，并让用户输入数据,保存在input
+						//2、比较 input 与 r 之间的大小
+						//2.0 判断是否为 exit，如果为 exit 则退出，否则 执行 2.1 ~ 2.3
+						//2.1 如果 input > r ，提示 输入大了
+						//2.2 如果 input < r , 提示 输入小了
+						//2.3 否则 恭喜您，猜对了!!,退出!!!
+				/*while(true){
+					var input = prompt("请输入一个数字");
+					if(input == "exit"){
+						console.log("放弃了！");
+						break;
+					}
+					input=Number(input);
+					if(input > r){
+						console.log("输入大了!");
+					}else if(input < r){
+						console.log("输入小了!");
+					}else{
+						console.log("恭喜您，猜对了!");
+						break;
+					}
+				}*/
+				
+				//方式2：用户猜对时退出，没猜对则继续
+				var input="";
+				while((input=prompt("请输入一个数字")) != r){
+					if(input == "exit"){
+						console.log("放弃了！");
+						break;
+					}
+					input=Number(input);
+					if(input > r){
+						console.log("输入大了!");
+					}else if(input < r){
+						console.log("输入小了!");
+					}else{
+						console.log("恭喜您，猜对了!");
+					}
+				}
+			}
+		</script>
+		<button onclick="guess()">猜数字游戏</button>
+		<button onclick="phoneBank1();">测试电话银行</button>
+	</body>
+</html>

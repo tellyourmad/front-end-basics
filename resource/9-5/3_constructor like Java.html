@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      "use strict";
+      //鄙视题: 实现一个js类型，既包含公有属性，又包含私有属性:
+      function Emp(id,name,age,salary){
+        //public
+        this.id=id;
+        this.name=name;
+        this.salary=salary;
+        var _age;//private
+        //配置属性的特性:
+        Object.defineProperties(this,{
+          id:{//设置id为只读
+            writable:false,configurable:false
+          },
+          salary:{//设置salary不可遍历
+            enumerable:false,configurable:false
+          },
+          age:{//添加访问器属性保护局部变量_age
+            set:function(val){
+              if(val<18||val>65)
+                throw new Error(
+                  "年龄必须介于18~65之间");
+              _age=val;
+            },
+            get:function(){return _age},
+            enumerable:true,
+            configurable:true
+          }
+        });//this(当前对象)已经有了访问器属性age
+        this.age=age;
+        //防扩展
+        //Object.preventExtensions(this);
+        //密封
+        Object.seal(this);
+      }
+      var emp=new Emp(1001,"eric",25,10000);
+      console.log(emp._age);
+      console.log(
+        Object.isExtensible(emp)
+      );//false
+      //emp.Age=-2;//尝试扩展新属性
+      //delete emp.age;//尝试删除已有属性
+      console.dir(emp);
+
+      //冻结:
+      var DBCONFIG={
+        USERNAME:"root",
+        PWD:"123456",
+        HOST:"localhost",
+        PORT:27017
+      }
+      Object.freeze(DBCONFIG);
+      console.log(Object.isFrozen(DBCONFIG));
+      DBCONFIG.HOST="192.168.0.100";
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>  
+    /*
+      //如果浏览器启用了cookie
+      if(navigator.cookieEnabled){
+        document.write("<h1>已启用cookie，请妥善保存个人信息</h1>");
+      }else{//否则
+        document.write("<h1>cookie已禁用，记住密码功能无法使用</h1>");
+      }//Chrome: 设置->高级->隐私->cookie->
+               //选中两个阻止xxx 
+    */
+    /*
+      //判断浏览器是否包含指定名称的插件
+      function checkPlugin(pname){
+        //遍历navigator的plugins集合
+        for(var i=0;
+            i<navigator.plugins.length;
+            i++){
+          //如果当前插件的name等于pname
+          if(navigator.plugins[i].name==pname){
+            return true;//返回true
+          }
+        }//(遍历结合)
+        return false;//返回false
+      }
+      console.log(
+        checkPlugin("Chrome PDF Viewer"),//true
+        checkPlugin("QQ Music")//false
+      );
+    */
+      document.write(
+        "<h1>"+navigator.userAgent+"</h1>");
+      var browser="unknown";
+      var ua=navigator.userAgent;
+      //如果ua中包含MSIE
+      if(ua.indexOf("MSIE")!=-1){
+        browser="IE";//browser赋值为"IE"
+      }else if(ua.indexOf("Firefox")!=-1){
+      //否则，如果ua中包含Firefox
+        //browser赋值为"Firefox"
+        browser="Firefox";
+      }else if(ua.indexOf("OPR")!=-1){
+      //否则，如果ua中包含OPR
+        browser="Opera";//browser赋值为"Opera"
+      }else if(ua.indexOf("Chrome")!=-1){
+      //否则，如果ua中包含Chrome
+        //browser赋值为"Chrome"
+        browser="Chrome";
+      }else if(ua.indexOf("Safari")!=-1){
+      //否则，如果ua中包含Safari
+        //browser赋值为"Safari"
+        browser="Safari";
+      }else if(ua.indexOf("Trident")!=-1){
+      //否则，如果ua中包含Trident
+        //browser赋值为"IE"
+        browser="IE";
+      }
+      
+      document.write(
+        "<h1>浏览器名称: "+browser+"</h1>");
+
+      var version="unknown";
+      //如果browser不是"unknown"
+      if(browser!="unknown"){
+        //如果browser是Opera
+        if(browser=="Opera"){
+          //在ua中查找OPR的位置,+3+1,保存在i中
+          var i=ua.indexOf("OPR")+3+1;
+          //截取ua中i位置之后的3位，转为浮点数保存在version中
+          version=parseFloat(ua.slice(i,i+3));
+        }else if(browser=="IE"
+                  &&ua.indexOf("MSIE")==-1){
+        //否则，如果browser是"IE",且ua中找不到"MSIE"
+          version="11";//将version改为"11"
+        }else{//否则
+          //在ua中查找browser的位置,+browser的字符个数+1,保存在i中
+          var i=
+           ua.indexOf(browser)+browser.length+1;
+          //选取ua中i位置之后的3位,转为浮点数保存在version中
+          version=parseFloat(ua.slice(i,i+3));
+        }
+      }
+      document.write(
+        "<h1>版本号: "+version+"</h1>");
+    </script>
+  </body>
+</html>

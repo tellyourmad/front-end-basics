@@ -1,0 +1,110 @@
+回顾：
+1. RegExp: 
+  检索: var arr=reg.exec(str);
+    while((arr=reg.exec(str))!=null){
+      arr[0]//本次找到的关键词
+      arr[i],或RegExp.$i //第i个分组的子内容
+      arr.index//本次找到的关键词位置
+    }
+  验证: var bool=reg.test(str);
+    前加^，后加$
+2. Math: 
+取整:
+  上取整: Math.ceil(n);
+  下取整: Math.floor(n);
+  四舍五入取整: Math.round(n);
+   vs n.toFixed(d)
+   function round(num,d){
+    return Math.round(num*Math.pow(10,d))
+	   /Math.pow(10,d)
+   }
+
+乘方和开平方:
+ Math.pow(底数,幂);
+ Math.sqrt(n)
+
+
+正课:
+1. Math:
+  max，min
+  random
+2. Date:
+
+1. Math: 不能new！
+最大值和最小值:
+  Math.max(值1,值2,...)
+   获得给定值中的最大值
+  Math.min(值1,值2,...)
+   获得给定值中的最小值
+  问题: max和min不支持数组参数
+    解决: Math.max.apply(null,arr)
+      获得arr中的最大元素
+
+随机数: 
+  Math.random() -> 返回0<=r<1之间的一个随机小数。  
+  在0~max之间取随机整数:
+  Math.floor(Math.random()*(max+1));
+  在min~max之间取随机整数:
+Math.floor(Math.random()*(max-min+1)+min)
+
+2. Date: 封装一个时间点，并提供操作时间的API的对象
+  何时使用: 只要存储日期或时间，或者要对时间进行计算时。
+  如何使用: 
+    创建: 3种:
+     1. 创建一个日期对象，同时自动获得客户端当前系统时间: 
+       var now=new Date();
+     2. 创建一个日期对象，并封装自定义时间:
+      var date=
+       new Date("yyyy/MM/dd hh:mm:ss");
+      var date=
+       new Date(yyyy,MM-1,dd,hh,mm,ss)
+     3. 复制一个日期对象: 
+       为什么:为了保留计算之前的原时间
+       何时: 只要要求同时保留计算前后的两个时间时，都要先复制原时间，再用副本计算新时间。   
+       如何: var date1=new Date("xxx")
+             var date2=new Date(date1);
+  日期对象的原理:
+    日期对象中封装的是一个从1970年1月1日0点至今的毫秒数
+
+Date API:
+ 分量: FullYear Month Date Day
+       Hours Minures Seconds Milliseconds
+ 1. 每个分量都有一对儿getXXX/setXXX方法
+    getXXX方法负责获取分量的数值
+    setXXX方法负责将新值更新到分量
+      强调: set可自动调整时间进制
+    特殊：Day 星期，没有set
+ 2. 年月日星期，都是单数，不带s
+    时分秒毫秒，都是复数，带s
+ 3. 返回值:(取值范围)
+    除了月中的日(Date)，是从1开始到31结束
+    其余都是从0开始，到进制-1结束
+    比如: 
+     Month: 0~11 在赋值或取值时都要修正
+     Date: 1~31 
+     Hours: 0~23
+     Minutes/Seconds: 0~59
+     Day: 0~6 日,一,二,...,六  不用修正
+
+  计算: 
+   1. 两日期对象可相减,结果毫秒差
+   2. 对任意分量做加减:3步:
+     1. 取分量: date.getXXX();
+     2. 做加减: 
+     3. set回去: date.setXXX(n)
+    简写: date.setXXX(date.getXXX()+n)
+
+  date 2 string:
+   date.toString()/toGMTString();
+   date.toLocaleString(); 转为当地时间格式，即包含日期，又包含时间
+   date.toLocaleDateString(); 转为当地时间格式，仅包含日期
+   date.toLocaleTimeString(); 转为当地时间格式，仅包含时间
+
+
+
+
+
+
+
+
+

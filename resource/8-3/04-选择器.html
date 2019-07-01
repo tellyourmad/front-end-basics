@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			.redBack{
+				font-size:30pt;
+				background-color:red;
+			}
+
+			.blueColor{
+				color:blue;
+			}
+			div.redBack{
+				text-decoration:line-through;
+			}
+			
+
+			.redBack,#d1,p{
+				text-align:right;
+			}
+			#d1{
+				font-size:48px;
+			}
+
+			/*修改 id 为 d3 的后代span元素，颜色为红色*/
+			#d3 span{color:red;}
+
+			/*修改 id为 d3 中的 p  中的 span元素 字体大小为20pt */
+			#d3>p>span{
+				font-size:20pt;
+			}
+
+			/*设置 a 元素的样式以及鼠标移入时的样式*/
+			a{
+				color:black;
+				text-decoration:none;/*去掉下划线*/
+			}
+			a:hover{
+				color:red;
+				text-decoration:underline;/*显示下划线*/
+			}
+
+			.p1 input{
+				font-style:italic;/*斜体*/
+				color:gray;
+			}
+			.p1 input:focus{
+				font-style:normal;/*正常体*/
+				color:black;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="p1">
+			用户名称：<input value="请输入您的名称">
+		</p>
+		 <a href="http://www.csdn.net">CSDN</a>
+		<div class="redBack">这是一个div</div>
+		<p class="redBack blueColor">这是一个p</p>
+		<div id="d1">id为d1的div元素</div>
+		<div id="d2">id为d2的div元素</div>
+
+		<div id="d3">
+			<span>id为d3中的 span元素</span>
+			<p>
+				<span>id为d3中的 p 中的 span元素</span>
+			</p>
+		</div>
+
+		<div id="d4">
+			<div class="right">
+				<p>
+					<span>猜猜我是谁???</span>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

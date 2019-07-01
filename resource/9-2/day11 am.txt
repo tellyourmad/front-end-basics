@@ -1,0 +1,163 @@
+回顾:
+1. Math:
+  Math.random()
+  0~max:
+   Math.floor(Math.random()*(max+1))
+  min~max:
+   Math.floor(Math.random()*(max-min+1)+min)
+2. Date:
+  创建:3种:
+   1. 创建日期对象并自动获得当前客户端系统时间:
+    var now=new Date();
+   2. 创建日期对象保存自定义时间:
+    var date=
+      new Date("yyyy/MM/dd hh:mm:ss");
+    var date=
+      new Date(yyyy,MM-1,dd,hh,mm,ss);
+   3. 复制一个日期对象:
+    var date2=new Date(date1);
+
+Date API:
+  FullYear Month Date Day
+  Hours Minutes Seconds Milliseconds
+ 1.每个分量都有一对儿get/set方法
+   Day没有set
+ 2.年月日星期 单数,不带s
+   时分秒毫秒 复数,带s
+ 3.月中的日(Date): 1~31
+   其余都是: 0~进制-1
+   只有Month需要修正: 计算机中的月比现实中少1
+
+ 计算: 
+  1. 两日期对象可相减,结果是毫秒差
+  2. 对任意分量做加减:
+   date.setXXX(date.getXXX()+n)
+
+ to String:
+  date.toString();
+  date.toGMTString();
+  date.toLocaleString();
+  date.toLocaleDateString();
+  date.toLocaleTimeString();
+
+3.错误处理:
+  try{
+    可能出错的正常代码
+  }catch(err){
+    只有出错才执行的错误处理代码
+  }finally{
+    无论是否出错总会执行的代码
+  }
+
+  Error:
+   SyntaxError,ReferenceError,TypeError
+   RangeError, URIError, EvalError
+
+  主动抛出异常:
+  throw new Error("错误信息");
+
+4.Function:
+ 创建：
+  1. 声明:
+   function 函数名(参数列表){
+     函数体
+     return 返回值;
+   }——被声明提前(hoist)
+  2. 直接量: 
+   var 函数名=function(参数列表){
+    ——不会被声明提前
+  3. 用new:
+   var 函数名=
+    new Function("参数名",...,"函数体")
+
+  js中，函数其实就是一个对象。
+    封装了一段可反复执行的代码段。
+    函数名其实只是一个引用函数对象的变量
+ 
+ 重载:(overload)
+   何时: 如果一件事，根据不同的参数，执行不同的逻辑时
+   如何:
+     arguments: 函数中自动创建的
+           自动接收所有传入函数的参数值得
+           类数组对象
+     arguments[i] //获得第i个参数值
+     arguments.length //获得参数个数
+
+正课:
+1.*****Function
+  匿名函数
+****作用域和作用域链
+*****闭包
+
+1.匿名函数:
+  什么是: 在创建时，不被任何变量引用的函数。
+  为什么: 节约内存
+  何时: 只要一个函数只用一次，就释放
+  如何使用: 
+   1.回调: 创建一个函数后，将函数对象传递给其他函数调用。
+     比如: 
+      arr.sort(
+	function(a,b){return a-b}
+      );
+      arr.replace(reg,function(){
+	return xxx;
+      })
+   2.自调: 创建一个函数，然后立刻调用执行
+          执行后，立刻释放
+     (function(参数列表){
+        函数体;
+        return 返回值;
+     })(参数值);
+     何时: 如果一项任务仅执行一次，且使用了仅属于当前任务的变量时，就要将变量和任务代码封装在一个匿名函数中，自调
+
+****作用域和作用域链:
+ 作用域(scope): 一个变量的可用范围
+            本质: 存储变量的对象
+ 函数的原理:
+  程序开始执行:
+    创建ECS(Execution Context Stack):
+      顺序保存正在调用的函数的执行环境
+    向ECS中压入第一个EC:
+      EC:函数调用时，引用所有变量的元素。
+    创建全局作用域对象window:
+      EC引用window
+  函数定义时: 创建函数对象
+         在全局创建函数名变量引用函数对象
+         在函数对象中添加一个scope属性:
+           引用函数来自的作用域对象
+  函数调用时:
+    向ECS中压入要调用函数的执行环境EC
+    创建函数作用域对象(活动对象AO):
+      AO:保存本次函数调用时，使用的所有局部变量的对象。
+      在AO中添加parent属性，引用函数对象的scope属性指向的作用域。
+    EC中的scope chain属性引用AO对象
+
+  函数调用后: 本次调用的函数的EC出栈
+      导致：AO释放
+            导致: 局部变量一同释放
+
+ 作用域链(scope chain):
+ 由各级作用域对象，逐级引用形成的链式结构
+   控制变量的使用顺序: 
+    优先使用AO中的局部变量
+    如果局部没有，才延作用域链向下找，到window
+    如果window也没有才报错
+
+*****闭包(closure):
+  重用局部变量，并保护变量不受污染的机制
+  为什么: 
+    全局变量: 随处可用，可反复使用
+           缺: 极易被污染
+    局部变量: 不会被污染
+           缺:仅函数内可用，且不可重用
+  何时: 只要希望重用一个局部变量，又不希望局部变量被污染时
+  如何: 3步:
+    Step1: 将受保护的变量和操作变量的函数封装在一个外层函数中定义。
+    Step2: 外层函数，要将内层函数队形返回
+    Step3: 使用者调用外层函数，获得内层函数对象。
+
+
+
+
+
+

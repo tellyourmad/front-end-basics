@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			#linear{
+				width:200px;
+				height:200px;
+				border:1px solid #000;
+				/*线性渐变*/
+				background-image:linear-gradient(45deg,yellow 0px,purple 20px,orange 100px,blue 200px);
+			}
+			#radial{
+				width:200px;
+				height:200px;
+				border:1px solid #000;
+				/*background-image:radial-gradient(yellow,purple,orange,blue);*/
+				background-image:radial-gradient(100px at top left,yellow,purple,orange,blue);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="linear"></div>
+		<div id="radial"></div>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			/*
+			  条件：死循环，输入 exit 为止
+				操作：
+					1、录入数据
+					2、判断是否为 exit
+					3、打印内容
+			 */
+			function printMsg(){
+				while(true){
+					var msg = prompt("请输入一段字符:");
+					if(msg=="exit"){
+						break;
+					}
+					console.log(msg);
+				}
+			}
+		</script>
+		<button onclick="printMsg();">循环录入数据</button>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+    /*
+      function fun(){
+        var n=999;
+        nAdd=function(){n++;};
+        return function(){return n;};
+      }
+      var getN=fun();
+      //getN: function(){(n=999) return n;};
+      console.log(getN());//999
+      nAdd();
+      console.log(getN());//1000
+    */
+      function fun(){
+        for(var i=0,arr=[];i<3;i++){
+          arr[i]=function(){return i};
+        }//i=3
+        return arr;
+      }
+      var funs=fun();//i=3
+      //funs: [
+        //function(){return i},
+        //function(){return i},
+        //function(){return i}
+      //]
+      console.log(funs[0]());//3
+      console.log(funs[1]());//3
+      console.log(funs[2]());//3
+    </script>
+  </body>
+</html>

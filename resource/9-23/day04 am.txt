@@ -1,0 +1,70 @@
+正课:
+1. 第三方插件:
+    日期，验证，瀑布流
+2. ***开发自定义jQuery插件
+
+1. 第三方插件:
+日期: jquery ui datepicker
+        h5   input type="date"
+        My97
+        layDate
+layDate:  不依赖于jquery
+如何: 
+   html: <input class="laydate-icon"
+   css: 引入laydate/skins/default/laydate.css
+   js: laydate({
+           elem:"selector",
+           format:"YYYY年MM月DD日",
+           其他属性
+        })
+
+表单验证: jquery.validator  依赖于jquery
+如何使用: 
+$(表单).validate({
+    rules: {//规则
+        name1: "required",//必填,如果只有一个简单规则时
+        name2: {//如果一个字段，需要多个规则验证时
+            规则1: 值,
+            规则2: 值,
+        },//所有规则列表: 					https://jqueryvalidation.org/documentation/
+                 List of built-in Validation methods
+    },
+    message:{//提示信息
+        name1: "name1验证失败的信息",
+        name2:{
+            规则1: "name2的规则1验证失败的信息",
+            规则2: "name2的规则2验证失败的信息",
+        }
+    }
+});
+如何添加自定义验证规则: 
+jQuery.validator.addMethod(规则名,method[,默认提示])
+使用自定义规则: field: "规则名"
+
+Masonry: 瀑布流
+特点: 不规则大小的砖块，拼凑成完整的砖墙
+什么是Masonry: 是一个javascript网格布局库.
+作用: 在一个垂直区域内，将元素按最优化的空间利用率自动摆放。
+如何使用: $(容器父元素).masonry();
+
+2. ***自定义jquery插件: 
+需求: 添加一个专门的函数sum，来计算数组中所有元素的和
+问题: 直接定义在全局，易被污染
+解决: 定义在一个自定义的对象中: 2步:
+   1. 定义一个全局对象;   
+   2. 在自定义的全局对象中添加自定义方法
+       优: 不易被污染
+html如何使用自定义方法: 2步:
+   1. 先引入方法所在的js文件
+   2. 用库对象.自定义方法()
+添加jquery全局函数: 
+
+
+
+
+
+
+
+
+
+

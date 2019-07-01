@@ -1,0 +1,71 @@
+正课: 
+1. 添加和删除: 
+2. ***HTML DOM常用对象: 
+   Image    Select       Table       Form
+                    Option
+  
+
+1. 添加和删除: 
+   添加: 3步:
+    1. 创建空元素对象: 
+        var a=document.createElement("a");
+        相当于: <a></a>
+    2. 设置元素的关键属性: 
+        a.href="http://tmooc.cn"
+        a.innerHTML="go to tmooc"; 
+    3. 将元素挂到指定父元素下:
+        末尾追加: parent.appendChild(a); 
+        插入: parent.insertBefore(a,old);
+        替换: parent.replaceChild(a,old);
+
+***优化: 尽量少的操作DOM树: 
+  html->DOM Tree
+                   ↓
+              Render Tree->layout->paint
+                   ↑
+  css->cssRules
+   如何: 1. 如果同时添加父元素和子元素，要在内存中先将所以子元素添加到父元素下，将父元素一次性加入DOM树
+          2. 如果同时添加多个平级子元素，要先将平级子元素加入文档片段，再将文档片段整体加到页面。
+
+   练习: select元素: onchange事件: 选中项发生改变时触发
+                         selectedIndex属性: 当前选中项的下标
+
+   文档片段: 内存中临时存储多个平级子元素的虚拟父元素
+      何时: 添加多个平级元素时，都要先将子元素追加到文档片段中缓存，再将文档片段一次性添加到页面的父元素下
+      如何: 3步:
+       1. 创建文档片段： 
+         var frag=document.createDocumentFragment();
+       2. 将平级子元素，先追加到frag下: 用法同普通父元素
+       3. 将文档片段，整体添加到页面
+
+   删除: parent.removeChild(child);
+       child.parentNode.removeChild(child);
+
+2. HTML DOM常用对象: 
+Image: <img />
+    创建: var img=new Image();
+
+Select: <select>
+    属性: 
+       selectedIndex:  当前选中项的下标
+       options: 获得select下所有option元素的集合
+          Option:<option>
+	创建: var opt=new Option(text,value);
+                    相当于: var opt=
+		document.createElement("option");
+                                opt.innerHTML=text;
+                                opt.value=value;
+                属性: index、text、value、selected
+
+       value: 如果选中项有value，则select的value等于选中项的value
+	如果选中项没有value，则select的value等于选中项的内容
+    方法:
+       add(option): 向select下追加一个option对象
+           appendChild(option)
+       remove(i): 移除select下i位置的option
+    事件: onchange: 当选中项发生改变时触发
+
+
+
+
+

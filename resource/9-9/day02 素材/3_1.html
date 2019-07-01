@@ -1,0 +1,45 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>修改元素的属性</title>
+<meta charset="utf-8" />
+</head>
+<body>
+	<!--1. 使用自定义属性实现摇号排名-->
+	<ul id="queue">
+  <!--#queue>li[data-i="3"]-->
+		<li>Eric</li>
+		<li>Scott</li>
+		<li>Jerry</li>
+		<li>Tom</li>
+		<li>Rose</li>
+		<li>John</li>
+		<li>Smith</li>
+		<li>Andy</li>
+	</ul>
+	<script>
+    //查找id为queue下的所有li，保存在lis中
+    var lis=document.querySelectorAll(
+      "#queue>li"
+    );
+    //遍历lis中每个li
+    for(var i=0;i<lis.length;i++){
+      while(true){//反复:
+        //在1~lis的元素个数之间随机生成一个整数r
+        var r=Math.floor(
+          Math.random()*lis.length+1);
+        //如果查找id为queue下的data-i属性为r的元素为空
+        if(document.querySelector(
+            "#queue>li[data-i='"+r+"']"
+          )==null){
+          //为li添加自定义属性i,值为r
+          //lis[i].setAttribute("data-i",r);
+          lis[i].dataset.i=r;
+          break;//退出循环
+        }
+      }
+    }
+    
+  </script>
+</body>
+</html>

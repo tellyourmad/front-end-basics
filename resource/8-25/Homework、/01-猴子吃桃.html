@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			function eatPeach(){
+				//1、定义 桃子的总量(total)，以及剩余量(left)初始化为1
+				var total,left=1;
+				//2、定义 循环变量 i，初始化为 10
+				var i=10;
+				//3、循环：
+					//条件：从 10 开始， 到 2 结束
+					while(i>1){
+						//操作
+						total=(left+1)*2;//计算上一天的剩余量
+						left=total;//将total赋值给真正的剩余变量，以便进行再上一天的计算
+						i--;
+					}
+				console.log("第一天，摘了"+total+"个桃子!");
+			}
+		</script>
+		<button onclick="eatPeach();">猴子吃桃</button>
+	</body>
+</html>

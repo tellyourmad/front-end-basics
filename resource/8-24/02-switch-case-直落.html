@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			/*输入 年，月  计算该月有多少天?*/
+			/*2005 5 : 2005年5月共有31天*/
+			/*2012 2 : 2012年2月共有29天*/
+			/*1,3,5,7,8,10,12 : 31天*/
+			/*4,6,9,11 : 30*/
+			/*2 : 闰年 29天，平年 28天*/
+			function getDays(){
+				var year = Number(prompt("Input Year"));
+				var month = Number(prompt("Input Month"));
+				var days = 0;
+				var isRun = (year%4==0&&year%100!=0)||(year % 400 == 0);
+				switch(month){
+					case 1:
+					case 3:
+					case 5:
+					case 7:
+					case 8:
+					case 10:
+					case 12:
+						days=31;
+						break;
+					case 4:
+					case 6:
+					case 9:
+					case 11:
+						days=30;
+						break;
+					case 2:
+						if(isRun){
+							days=29;
+						}else{
+							days=28;
+						}
+						break;
+				}
+				console.log(year+"年"+month+"月共有"+days+"天");
+			}
+		</script>
+		<button onclick="getDays();">计算天数</button>
+	</body>
+</html>

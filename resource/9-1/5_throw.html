@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      //定义者:甲
+      function round(num,d){
+        if(!isNaN(num)&&!isNaN(d)){
+          return Math.round(num*Math.pow(10,d))
+                  /Math.pow(10,d);
+        }else{
+          throw new Error(
+            "孙子，参数必须是数字！");
+        }
+      }
+      //调用者:
+      while(true){
+        var num=prompt("输入数字");
+        var d=prompt("输入小数位数");
+        try{ console.log(round(num,d));
+        }catch(err){ alert(err) }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var data=[
+        [2,4,2,4],
+        [4,2,4,2],
+        [2,8,8,4],
+        [4,2,4,2]
+      ];
+      function isGameOver(){
+        //遍历二维数组data
+        for(var r=0;r<data.length;r++){
+          for(var c=0;c<data[r].length;c++){
+            //如果当前元素等于0，就返回false
+            if(data[r][c]==0){return false;}
+            //如果c<第r行的元素个数-1且当前元素等于右侧元素，就返回false
+            if(c<data[r].length-1
+              &&data[r][c]==data[r][c+1]){
+              return false;
+            }
+            //如果r<data的行数-1且当前元素等于下方元素，就返回false
+            if(r<data.length-1
+              &&data[r][c]==data[r+1][c]){
+              return false;  
+            }
+          }
+        }//(遍历结束)
+        return true;//返回true
+      }
+      //console.log(isGameOver());//
+
+      var provs=["北京市","天津市","河北省"];
+                //   0       1        2
+      var cities=[
+        ["东城区","西城区","海淀区"],//0
+        ["河东区","南开区","和平区"],//1
+        ["石家庄市","保定市","唐山市"]//2
+      ];
+      function getCitiesByProv(pname){
+        //遍历provs
+        for(var i=0;i<provs.length;i++){
+          //如果当前省份等于pname,就退出循环
+          if(provs[i]==pname){break;}
+        }//(遍历结束)
+        //如果i<provs的length
+        if(i<provs.length){
+          //弹出提示，显示cities中i位置的子数组
+          alert(cities[i]);
+        }else{//否则
+          //弹出提示, 省份没找到
+          alert("省份没找到");
+        }
+      }
+      getCitiesByProv(prompt("输入省份:"));
+    </script>
+  </body>
+</html>

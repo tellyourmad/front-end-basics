@@ -1,0 +1,10 @@
+/*1、定义 h1 的样式，背景颜色为 orange 色，大小 为 12px*/
+h1{
+	background-color:orange;
+	font-size:12px;
+}
+/*2、定义 h2 的样式，背景颜色为 pink 色，大小为 10px*/
+h2{
+	background-color:pink;
+	font-size:10px;
+}

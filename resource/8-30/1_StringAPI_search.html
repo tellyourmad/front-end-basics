@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var reply=prompt("输入回复");
+      //查找reply中是否包含我草,我艹,...等敏感词
+      var i=reply.search(/[我卧][草艹槽操]/);
+      if(i!=-1){//如果包含
+        alert("包含敏感词，关小黑屋...");
+      }else{//否则，说明不包含
+        alert("clear! 回复成功！");
+      }
+    </script>
+  </body>
+</html>

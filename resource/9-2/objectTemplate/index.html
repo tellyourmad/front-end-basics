@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>自我介绍</title>
+		<link rel="Stylesheet" href="index.css"/>
+	</head>
+	<body>
+		<div id="parentDiv">
+<div id="lilei" onmouseover="lilei.intr()" onmouseout="dialog.style.display='none'">
+</div>
+<div id="hmm" onmouseover="hmm.intr()" onmouseout="dialog.style.display='none'">
+</div>
+			<div id="dialog">
+			</div>
+		</div>
+		<script>
+    /*
+			var lilei={ 
+        name:"Li Lei",
+        age:11,
+        intr:function(){
+          //设置id为dialog的div的内容为：
+          dialog.innerHTML="I'm "+this.name+
+                            ", I'm "+this.age;
+          //设置id为dialog的div显示:
+          dialog.style.display="block";
+        }
+      }
+      var hmm={ 
+        name:"Han Meimei",
+        age:12,
+        intr:function(){
+          //设置id为dialog的div的内容为：
+          dialog.innerHTML="I'm "+this.name+
+                            ", I'm "+this.age;
+          //设置id为dialog的div显示:
+          dialog.style.display="block";
+        }
+      }
+    */
+      console.dir(lilei);
+      lilei.age++;
+      console.log(lilei.age);
+		</script>
+	</body>
+</html>

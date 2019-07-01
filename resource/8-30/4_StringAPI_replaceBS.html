@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var str="no zuo no die nano nothing";
+      console.log(str.match(/\bno\b/ig));
+      //鄙视题:
+      //1. 将英文句子中的每个单词首字母转大写:
+      var str="we two who and who";
+      //\b[a-z]+\b
+      str=str.replace(/\b[a-z]/g,
+        function(kwd){
+          return kwd.toUpperCase();
+        }
+      );
+      console.log(str);
+      //2. we two who and who
+      //   we5 two6 who7 and8 who9
+      var str="we two who and who";
+      var i=5;
+      str=str.replace(/\b[a-z]+\b/g,
+        function(kwd){
+          return kwd+i++;
+        }
+      );
+      console.log(str);
+
+      //3. 删除字符串开头或结尾的空字符
+      function ltrim(str){
+        return str.replace(/^\s+/,""); 
+      }
+      function rtrim(str){
+        //" \t张 东 \t" =>" \t张 东"
+        return str.replace(/\s+$/,"");
+      }
+      function trim(str){
+        //" \t张 东 \t" =>"张 东"
+        return str.replace(/^\s+|\s+$/g,"");
+      }
+      var str=" \t张 东 \t";
+      console.log(ltrim(str));//"张 东 \t" 
+      console.log(rtrim(str));//" \t张 东"
+      console.log(trim(str));"张 东"
+
+      //格式化: 
+      var date="20160830二下0434";
+      date=date.replace(
+        /(\d{4})(\d{2})(\d{2})([\u4e00-\u9fa5])([\u4e00-\u9fa5])(\d{2})(\d{2})/,
+        "$1年$2月$3日 星期$4 $5午 $6:$7");
+      console.log(date);
+    </script> 
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var msg="今晚308,w84u";
+      function encode(msg){//编码
+        //遍历msg中每个字符,同时声明空字符串code
+        for(var i=0,code="";i<msg.length;i++){
+          //将当前字符的unicode号保存在变量u
+          var u=msg.charCodeAt(i);
+          //如果u<10000,就补齐5位
+          u=(u+100000+"").slice(1);
+          code+=u;//再将u拼接到code结尾
+        }//(遍历结束)
+        return code;
+      }
+      var code=encode(msg);
+      console.log(code);
+
+      function decode(code){
+        //每5个字符遍历一次,同时声明空字符串msg
+        for(var i=0,msg="";i<code.length;i+=5){
+          //截取code中i位置开始到i+5结束的子字符串保存在变量u中
+          var u=code.substring(i,i+5);
+          //将u转为原字符后，拼接到msg结尾
+          msg+=String.fromCharCode(u);
+        }//(遍历结束)
+        return msg;
+      }
+      console.log(decode(code));//
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			#nav{
+				margin:0;
+				padding:0;
+				list-style:none;
+
+				width:990px;
+				height:40px;
+				background:#E64346;
+			}
+			#nav li{
+				float:left;
+			}
+			#nav li a{
+				/*1、左浮动:float:left*/
+				/*2、变块级:display:block;*/
+				/*3、行内块:display:inline-block;*/
+
+				/*左浮动，宽度，高度*/
+				float:left; /*为了修改 宽度 和 高度*/
+				width:100px;
+				height:40px;
+				/*水平居中对齐，行高，文字加粗，颜色，去下划线*/
+				text-align:center;
+				line-height:40px;
+				font-weight:bold;
+				color:#fff;
+				text-decoration:none;
+			}
+			#nav li a:hover{
+				background:#BD2A2C;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="nav">
+			<li>
+				<a href="#">导航1</a>
+			</li>
+			<li>
+				<a href="#">导航2</a>
+			</li>
+			<li>
+				<a href="#">导航3</a>
+			</li>
+			<li>
+				<a href="#">导航4</a>
+			</li>
+		</ul>
+	</body>
+</html>

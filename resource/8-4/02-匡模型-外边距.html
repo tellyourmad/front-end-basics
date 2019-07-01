@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			#d1{
+				border:1px solid #000;
+			}
+			#d2,#d3{
+				width:100px;
+				height:100px;
+				background-color:#f00;
+			}
+			#d3{
+				background-color:#0f0;
+				/*margin:20px;*/
+			}
+			#d2{
+				/*增加 上外边距 和  左外边距*/
+				/*margin-top:10px;
+				margin-left:10px;*/
+
+				/*margin-top:-10px;*/
+
+				/*设置左右方向的 margin 为 auto*/
+				/*margin-left:auto;
+				margin-right:auto;*/
+
+				/*margin:0 auto;*/
+			}
+
+
+			/*外边距合并*/
+			#d2{
+				/*margin-bottom:20px;*/
+			}
+			#d3{
+				/*margin-top:30px;*/
+			}
+			/*外边距溢出*/
+			#d3{
+				border-top:1px solid transparent;
+				height:99px;
+			}
+			#d4{
+				width:50px;
+				height:50px;
+				background-color:yellow;
+				margin-top:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			<div id="d2"></div>
+			<div id="d3">
+				<div id="d4"></div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+回顾:
+1. ***event
+   elem.addEventListener("事件名",函数,capture);
+   elem.removeEventListener("事件名",函数);
+
+   e.stopPropagation(); //取消冒泡
+   e.target //获得目标元素
+   e.preventDefault(); //阻止默认行为
+
+正课
+1. ***event
+   事件坐标: 
+      参照屏幕左上角: e.screenX, e.screenY
+      参照文档显示区左上角: e.clientX||e.x  ,   e.clientY||e.y
+      参照所在父元素的左上角: e.offsetX , e.offsetY
+
+   页面滚动事件: 
+       onscroll: 
+       获得页面滚动过的距离: 
+	document.body.scrollTop||                                        	   document.documentElement.scrollTop
+
+2. cookie: 
+    创建: document.cookie=
+	"变量名=值;expires="+date.toGMTString();
+
+
+
+
+
+
+
+
+
+
+
+   

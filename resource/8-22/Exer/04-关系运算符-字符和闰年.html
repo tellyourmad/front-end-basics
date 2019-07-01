@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			//1、输入一个字符，输出 一个英文吗 ？数字吗？汉字吗？
+			/*var c =prompt("请输入任意一个字符:");
+			var isEng = (c>='a'&&c<='z')||(c>='A'&&c<='Z');
+			var isNum = (c>='0'&&c<='9');
+			var isChn = (c>='\u4E00'&&c<='\u9FA5');
+			console.log("是英文吗?"+isEng);
+			console.log("是数字吗?"+isNum);
+			console.log("是汉字吗?"+isChn);*/
+		</script>
+		<script>
+			//1、输入一个数字(年份)，保存在 变量 year 中
+			var year = parseInt(prompt("请输入年份 ："));
+			//2、判断 year 是否为 闰年
+				//2.1 能被4整除但不能被100整除
+				//year%4==0&&year%100!=0
+				//2.2 或者 能被 400整除
+				//year%400==0
+			var result = (year%4==0&&year%100!=0)||(year%400==0);
+			console.log(year+"是闰年吗?"+result);
+		</script>
+	</body>
+</html>

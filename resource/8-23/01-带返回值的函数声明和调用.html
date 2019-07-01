@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			function getMoney(card,pwd,money){
+				console.log("卡号为："+card);
+				console.log("密码为："+pwd);
+				//扣除 5块 手续费，再返回给用户
+				money-=5;
+				return money;
+			}
+
+			//调用带参数的函数
+			var money=getMoney('1234','5678',500);
+			console.log("您取的钱为:"+money);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态创建表格</title>
+<meta charset="utf-8" />
+<style>
+	table{width:600px; border-collapse:collapse;
+		text-align:center;
+	}
+	td{border:1px solid #ccc}
+  thead td{text-align:center; font-weight:bold}
+</style>
+
+</head>
+<body>
+	<div id="data">
+	</div>
+  <script>
+    var json='[{"ename":"Tom", "salary":10000, "age":25},{"ename":"John", "salary":11000, "age":28},{"ename":"Mary", "salary":12000, "age":25}]';
+    var emps=eval(json);
+    
+    //创建table
+    var table=document.createElement("table");
+    //在table中添加thead
+    var thead=table.createTHead();
+    var tr=thead.insertRow();//在thead中添加tr
+    //遍历emps中第1个对象的每个属性
+    for(var key in emps[0])
+     //向tr中添加td,同时设置td的内容为当前属性名
+     tr.insertCell().innerHTML=key;  
+    //向table中添加tbody
+    var tbody=table.createTBody();
+    //遍历emps中每个员工对象
+    for(var i=0;i<emps.length;i++){
+      var tr=tbody.insertRow();//向tbody中添加行
+      //遍历当前员工的每个属性
+      for(var key in emps[i]){
+        //先向tr中添加一个td,同时设置td的内容为当前属性值
+        tr.insertCell().innerHTML=emps[i][key];
+      }
+    }
+
+    //将table追加id为data的元素下
+    document.getElementById("data")
+            .appendChild(table);
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+正课:
+1.*****ES5
+  数组API:
+*****bind函数
+  严格模式:
+
+1.数组API:
+  1. 判断数组中的元素是否符合要求
+    arr.every(): 每个元素是否都符合要求
+    arr.some(): 是否包含符合要求的元素
+    如何使用: 
+    arr.every(function(val,idx,arr){
+      return 判断条件
+    });
+  2.遍历API:对数组中每个元素执行相同的操作
+   arr.forEach(): 对原数组中每个元素，直接做相同的操作——直接修改原数组
+   arr.map(): 依次取出原数组中每个元素，执行相同操作后，放入一个新数组。
+      ——返回新数组
+   如何使用:
+   arr.forEach(function(val,idx,arr){
+      直接修改arr中idx位置的当前元素
+   });
+   arr.map(function(val,idx,arr){
+      return 一个新值
+   });
+   其实: map也可实现forEach的功能，用法和forEach一样。
+
+  3.过滤和汇总: 
+    arr.filter(): 筛选出原数组中符合条件的元素，组成新数组。
+    arr.filter(function(val,idx,arr){
+       return 判断条件
+    });
+
+    汇总: 将数组中每个元素统计起来，得出一个结果。
+     var r=arr.reduce(
+        function(prev,val,idx,arr){
+	   return prev+val;
+        },
+        startVal
+     )
+     其中: prev自动接收截止到目前已经统计的临时汇总结果。
+           startVal是开始汇总前的初始值
+
+2. bind函数:基于一个现有函数，创建一个新函数，并永久绑定this为指定对象，同时，还可提前绑定部分参数。
+   何时使用: 在使用回调函数时，只要希望固定回调函数中的this时。
+   鄙视题: call apply bind
+     call和apply: 临时借用构造函数，并临时替换函数中的this为指定对象。
+       立刻执行函数
+       调用后，this回复原样
+      call: 参数单独传入
+      apply: 参数以数组传入
+     bind: 创建一个函数，并永久绑定this
+       不会立刻执行新函数
+       一旦被bind创建的函数，其中的this，无法再被call/apply替换
+
+3. 严格模式: 
+  如何使用: 
+    在当前范围的开头: "use strice";
+    写在2个地方: 
+      1. 写在一个函数内部的开头: 
+        仅函数内使用严格模式，函数外依然使用普通模式
+      2. 写在一个script元素或js文件的开头
+        整个js文件或script代码段都采用严格模式
+
+    1. 旧项目升级，先逐个函数启用严格模式
+    2. 新项目，开始就使用严格模式
+
+  规定: 
+   1. 将静默失败升级为了错误！
+   2. 不允许对未声明的变量赋值！
+   3. 尽量少的或不使用arguments及其API
+   4. 新增了eval作用域:
+      在eval中声明的变量，eval结束后，不能使用。
+
+
+
+
+
+
+

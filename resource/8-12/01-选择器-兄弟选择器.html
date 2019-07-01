@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			/*1、通过  #p1 元素 找到相邻兄弟 p，并且设置 样式  加粗，红色*/
+			#p1+p{
+				font-weight:bold;
+				color:red;
+			}
+
+			#p2~p{
+				background:yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			<p id="p1">两只黄鹂鸣翠柳</p>
+			<p id="p2">一行白鹭上西天</p>
+			<p id="p3">白毛浮绿水</p>
+			<p id="p4">红掌拨清波</p>
+		</div>
+	</body>
+</html>

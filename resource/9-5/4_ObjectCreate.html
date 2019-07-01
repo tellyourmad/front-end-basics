@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var father={
+        bal:1000000000,
+        car:"infiniti"
+      };
+      Object.create=function(father,properties){
+        console.log("自定义的create");
+        //1.创建一个新对象——可省略
+        //var child=new Object();
+        //2.设置新对象继承father
+      //Object.setPrototypeOf(child,father);//IE11
+        //如何不用setPrototypeOf也能设置继承?
+        //Step1:定义临时空构造
+        var Temp=function(){};
+        //Step2:设置空构造的prototype引用父对象
+        Temp.prototype=father;
+        //Step3:用临时构造函数实例化子对象
+        var child=new Temp();
+        //3.为child扩展新属性:
+        if(properties!==undefined){
+          Object.defineProperties(
+            child,properties
+          );
+        }
+        return child;
+      }
+      //1. 创建一个新对象child; 2. 继承father
+      var child=Object.create(father,{
+        //3.用defineProperties扩展新属性
+        phone:{//四大特性
+          value:"iphone7",
+          writable:true,
+          enumerable:true,
+          configurable:true
+        },
+        bao:{
+          value:"LV",
+          writable:true,
+          enumerable:true,
+          configurable:true
+        }
+      });
+      console.dir(child);
+    </script>
+  </body>
+</html>

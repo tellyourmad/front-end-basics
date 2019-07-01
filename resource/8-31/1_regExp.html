@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var str="you can you up";
+      var reg=/you/ig;
+      console.log(str.match(reg));
+
+      var names=["明明","静静","明月"];
+      var reg=new RegExp(
+        names.join("|"),"ig"
+      );
+      var str="明明喜欢我,却不告诉我"+
+              "别理我，我想静静"+
+              "静静是谁?"+
+              "你先告诉我明明是谁?"+
+              "床前明月光"+
+              "日照香炉生紫烟";
+      console.log(str.match(reg));
+    </script>
+  </body>
+</html>

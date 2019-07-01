@@ -1,0 +1,41 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>事件处理</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+ 	<form>
+		姓名:<input name="username"/>
+		密码:<input type="password" name="pwd"/>
+		<input type="submit"/>
+	</form><br>
+	<!--2. 实现不能后退的页面跳转-->
+	<a href="javascript:location.replace('http://tmooc.cn')">go to tmooc</a>
+  <script>
+    function getSearch(){
+    //获得url中的查询字符串，保存在变量search中: 
+      //"?变量名=值&变量名=值"
+    var search=location.search;
+    var params={};//创建空对象params
+    if(search!=""){//如果search!=""
+      //去掉search开头的?,再按&切割,将结果保存在变量props中
+      var props=search.slice(1).split("&");
+      //遍历props中每个元素
+      for(var i=0;i<props.length;i++){
+        //将当前元素按=切割，结果保存在变量arr中
+        var arr=props[i].split("=");
+        //向params对象中添加新属性:
+          //属性名为arr中第0个元素
+          //属性值为arr中第1个元素
+        params[arr[0]]=arr[1];
+      }
+    }
+    return params;//返回params
+    }
+    console.dir(getSearch());
+    //{变量名:值,变量名:值}
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+回顾: 
+1. ***查找:
+  1. 节点间关系: 
+     节点树:
+      1. 父子关系:
+        parentNode
+        childNodes
+        firstChild
+        lastChild
+      2. 兄弟关系
+        previousSibling
+        nextSibling
+    元素树:
+      1. 父子关系:
+        parentElement
+        children
+        firstElementChild
+        lastElementChild
+      2. 兄弟关系
+        previousElementSibling
+        nextElementSibling
+  2. 按HTML查找:
+      按id: document.getElementById();
+      按标签名: parent.getElementsByTagName();
+      按name: parent.getElementsByName();
+      按class: parent.getElementsByClassName();
+  3. 按选择器: 
+      找一个: parent.querySelector()
+      找多个: parent.querySelectorAll()
+  4. VIP:
+      document.body
+      document.head
+      document.documentElement
+2. 访问属性: 
+   标准属性: 
+       核心DOM: 
+         1. 获得属性值: getAttribute("属性名")
+         2. 设置属性值: setAttribute("属性名",值)
+         3. 移除属性: removeAttribute("属性名")
+         4. 判断是否包含: hasAttribute("属性名")
+       HTML DOM:
+          elem.属性名
+
+   自定义属性:
+      核心DOM: 
+      HTML5: 1. 定义时: data-属性名="值"
+                   2. 访问时: elem.dataset.属性名
+     
+    property  vs  attribute
+   
+正课:
+1. 修改: 
+   样式: 内联样式, 内/外部样式表
+2. 增加和删除: 
+   
+1. 修改样式: 
+   访问内联样式:  
+       修改样式: elem.style.css属性名
+       获取样式: 问题: 仅能访问内联样式
+                  解决: var style=getComputedStyle(elem)
+                               style.css属性名 ——只读
+          其中,css属性名都要去横线，变驼峰:
+           比如: background-color:  backgroundColor
+                    list-style-type: listStyleType
+    问题: 一条语句只能修改一个样式
+    解决: 将一套样式，放入class
+             用程序操作class
+
+    课堂练习: 
+       获得焦点onfocus: 元素从不可操作到可操作的状态变化
+       失去焦点onblur: 元素从可操作变回不可操作的变化
+
+   修改内/外部样式表中的属性: 
+     1. 获得样式表对象: var sheet=document.styleSheets[i] 
+     2. 获得cssRule对象: var rule=sheet.cssRules[i];
+        特殊: rule是一个keyframes:
+            var subRule=rule.cssRules[i]
+     3. 修改cssRule中的属性: rule.style.css属性名=值
+
+   Chrome: 不允许sheet对象访问本地的css样式表文件
+    
+
+
+

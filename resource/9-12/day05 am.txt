@@ -1,0 +1,83 @@
+正课：
+1. BOM:
+    打开和关闭窗口
+    窗口大小和窗口定位
+*****定时器
+
+1. 什么是BOM: Browser Object Model
+       BOM是专门操作浏览器的API
+      window: 两个角色
+          1. 代替global，充当全局对象
+          2. 封装操作浏览器窗口的API
+      history: 保存当前窗口打开后成功访问过的url的历史记录栈
+      navigator: 保存浏览器配置信息
+      location: 保存当前窗口正在打开的url的对象
+      screen: 保存当前显示器或桌面分辨率信息
+      event: 在事件发生时，自动保存事件相关信息的对象
+
+2. 打开和关闭窗口: 
+   window.open() 打开，window.close()关闭当前窗口
+   打开超链接的方式总结: 
+     1. 在当前窗口打开新链接，可后退
+         html: <a href="url"></a>
+         js: open("url","_self")
+     2. 在当前窗口打开新链接，不可后退
+         js: location.replace("url");
+     3. 在新窗口打开新链接，可打开多个
+         html: <a href="url" target="_blank"></a>
+         js: open("url")
+     4. 在新窗口打开新链接，只能打开一个窗口
+        内存中，每个窗口都有一个唯一的名字name属性
+        name属性是在内存中唯一标识一个窗口的名称
+        浏览器规定: 相同name的窗口的只能打开一个
+                            后打开的会刷新先打开的。
+        在打开新窗口时，可自定义name属性
+        预定义name属性值: _self  _blank ...
+        
+         html: <a href="url" target="name"></a>
+         js: open("url","name")
+
+3. 窗口大小和窗口定位(了解):
+    窗口大小: 
+     获取窗口大小:
+        1. 获取完整窗口大小: outerWidth/outerHeight
+        2. 获得文档显示区大小: innerWidth/innerHeight 
+     修改窗口大小: 
+        1. 在打开窗口时，就可定义新窗口的大小和位置:
+           2步: 
+           1.定义配置字符串: 
+              var config="top=?,left=?,width=?,height=?"
+                                                    //只是文档显示区的大小
+           2. 打开窗口时，传入配置字符串              
+              open("url","name",config);
+        2. 通过API调整窗口大小: 
+            resizeTo(width,height)
+                 width/height定义的是完整大小
+            resizeBy(width的增量,height的增量)
+       强调:
+         1. 只能修改在打开时，就修改了位置和大小的弹出窗口 
+         2. 无法修改当前窗口自己的大小
+               通过一个窗口修改另一个窗口的大小
+
+    窗口定位: 
+       获取窗口左上角定位: 
+          window.screenLeft||window.screenX
+          window.screenTop||window.screenY
+       修改窗口的位置:
+          moveTo(x,y);
+          moveBy(x的增量,y的增量)
+
+   练习: 
+     1. 屏幕的大小: 
+       完整大小: screen.height  screen.width 
+       去掉任务栏之后的剩余大小: 
+                      screen.availHeight  screen.availWidth
+     2. 事件发生时，鼠标的位置: 
+       e.screenX; 相对于屏幕左上角的x坐标
+       e.screenY; 相对于屏幕左上角的y坐标
+   
+
+
+
+
+

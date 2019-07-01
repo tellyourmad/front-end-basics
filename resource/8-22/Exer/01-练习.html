@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			//1、通过 提示框 输入一个工资，保存在 变量 salary 中
+			var salary=prompt("请输入您个工资:");
+			//2、将 salary + 1000 再保存给 salary，打印输出结果
+			/*salary=salary + 1000;
+			console.log("涨工资后，您的工资为:"+salary);*/
+			//3、注销第二步，使用typeof函数检查 输入的 salary 的数据类型
+			console.log(typeof salary);
+			//4、尝试将 salary 转换为整数(parseInt(),Number()),再 + 1000 保存给 salary
+			salary=parseInt(salary) + 1000;
+			window.alert("您的工资为:"+salary);
+		</script>
+
+		<script>
+			document.write("HelloWorld");
+		</script>
+		Hello
+		
+
+
+
+		World
+	</body>
+</html>

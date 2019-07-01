@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style>
+			#d1{
+				color:red;
+				color:pink\0;/*IE 8*/
+				color:yellow\9\0;/*IE 9 10*/
+				+color:green;/*IE 7 中，文本绿色*/
+				-color:blue;/*IE6 中，文本 蓝色*/
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			CSS Hack 测试文本
+		</div>
+	</body>
+</html>

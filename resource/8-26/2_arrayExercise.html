@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+    /*
+      var emps=[];//创建空数组emps
+      //声明ename为空字符串
+      var ename="";
+      //反复执行: //请用户输入员工姓名，保存在ename中，如果ename不是exit
+      while((ename=prompt("输入姓名"))!="exit"){
+        //将ename追加到数组emps末尾
+        emps[emps.length]=ename;
+      }
+      //输出:
+      console.dir(emps);
+    */
+    /*
+      //找出数组中一个最大值:
+      var arr=[1,2,3,4,3,2,1];
+          //                 max=4
+      function getMax(arr){
+        //遍历arr中每个元素,同时声明变量max，赋值为数组第1个元素
+          //如果当前元素>max,就将max赋值为当前元素
+        for(var i=0,max=arr[0];
+            i<arr.length;
+            arr[i]>max&&(max=arr[i]),i++);
+        return max;//返回max
+      }
+      console.log(getMax(arr));//4
+    */
+      var arr=[1,2,3,2,1];
+            // 0 1 2 3 4
+      //定义indexOf函数
+        //可以从指定位置开始，查找下一个指定值得下标位置
+        //如果找不到，返回-1
+      function indexOf(arr,val,fromi){
+        //如果fromi是undefined就赋值为0
+        fromi===undefined&&(fromi=0);
+        //从fromi开始，遍历arr中剩余元素
+        for(;fromi<arr.length;fromi++){
+          //如果当前元素等于val
+          if(arr[fromi]==val){
+            return fromi;//返回fromi
+          }
+        }//(遍历结束)
+        return -1; //返回-1
+      }
+      //在arr中从0位置开始找下一个元素值为2的位置
+      console.log(indexOf(arr,2));//1
+      //在arr中从2位置开始找下一个元素值为2的位置
+      console.log(indexOf(arr,2,2));//3
+      //在arr中从4位置开始找下一个元素值为2的位置
+      console.log(indexOf(arr,2,4));//-1
+      //在arr中从0位置开始找下一个元素值为4的位置
+      console.log(indexOf(arr,4));//-1
+    </script>
+  </body>
+</html>

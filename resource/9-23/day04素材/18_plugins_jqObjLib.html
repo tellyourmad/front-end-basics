@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> 我的第一个网页 </title>
+  <meta charset="utf-8"/>
+ </head>
+
+ <body>
+  <ul>
+    <li>56</li>
+    <li>78</li>
+    <li>99</li>
+    <li>40</li>
+  </ul>  
+  上述学生成绩的平均分为：<span id="avgScore"></span>
+  <!--引入jquery.js-->
+  <script src="js/jquery-1.11.3.js"></script>
+  <!--再引入18_jqObjLib.js-->
+  <script src="18_jqObjLib.js"></script>
+  <script>
+    //查找ul下所有li，调用avg方法，将结果保存到id为avgScore的元素中
+    $("#avgScore").html($("ul>li").avg());
+  </script>
+
+  <div>
+    <p>89</p>
+    <p>95</p>
+    <p>88</p>
+    <p>50</p>
+  </div>
+  <script>
+
+  </script>
+ </body>
+</html>

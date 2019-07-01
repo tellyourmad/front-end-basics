@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<!-- 创建一个表单 -->
+		<form action="" method="get" enctype="multipart/form-data">
+		<fieldset>
+			<legend>用户基本信息</legend>
+			<p>
+				<label for="txtUsername">用户名称：</label><input id="txtUsername" value="请输入您的姓名" maxlength="12" name="txtUsername">
+			</p>
+			<p>
+				用户密码：<input type="password" name="txtUserpwd" >
+			</p>
+		</fieldset>
+			<p>
+				用户性别：
+				<input type="radio" value="male" name="rdoGender" checked>帅哥
+				<input type="radio" value="female" name="rdoGender">美女
+			</p>
+			<p>
+				用户爱好：
+				<input type="checkbox" value="eat" name="chkHobby">吃
+				<input type="checkbox" value="drink" name="chkHobby">喝
+				<input type="checkbox" value="play" name="chkHobby">玩
+				<input type="checkbox" value="happy" name="chkHobby">乐
+			</p>
+			<p>
+				<input type="hidden" name="txtUID" value="110120119" >
+			</p>
+			<p>
+				用户头像：
+				<input type="file" name="txtImg">
+			</p>
+			<p>
+				自我介绍：
+				<textarea name="txtIntro" cols="40" rows="5"></textarea>
+			</p>
+			<p>
+				<!-- 下拉选项框 -->
+				用户学历：
+				<select name="selEdu">
+					<option value="0">高中</option>
+					<option value="1">大专</option>
+					<option value="2">本科</option>
+					<option value="3">硕士</option>
+					<option value="4">博士及以上</option>
+					<option value="-1" selected>=== 请选择===</option>
+				</select>
+			</p>
+			<p>
+				意向工作城市：
+				<select name="selCity" size="3" multiple>
+					<option value="bj">北京</option>
+					<option value="sh">上海</option>
+					<option value="tj">天津</option>
+					<option value="cq">重庆</option>
+				</select>
+			</p>
+			<p>
+				<input type="submit" value="起飞...">
+				<input type="reset" value="降落...">
+				<input type="button" value="^_^" />
+			</p>
+			
+		</form>
+	</body>
+</html>

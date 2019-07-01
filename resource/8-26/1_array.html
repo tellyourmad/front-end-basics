@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+      var arr=["一","二","三","四","五"];
+             // 0    1    2    3    4
+      console.dir(arr);
+      console.log(arr[2]);//获取下标2位置的元素值
+      //取出下标2位置的值，拼上"星期",再放回2位置
+      arr[2]="星期"+arr[2];
+      //获取元素时越界，不报错，返回undefined
+      console.log(arr[10]);
+      //设置元素时越界，自动添加新元素
+      arr[6]="星期日";
+      //固定套路: 
+      console.log(
+        arr[arr.length-1],//倒数第一个元素
+        arr[arr.length-3]//倒数第三个元素
+      );
+      arr[arr.length]="星期八";//末尾追加新元素
+    </script>
+	</body>
+</html>

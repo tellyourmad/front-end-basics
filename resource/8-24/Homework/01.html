@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+			/**
+			 * 计算 可莱托指数
+			 * 要求用户 从网页中输入 身高 和 体重
+			 * (接收用户传递过来的 身高 和 体重 可做参数)
+			 * 经过公式计算得到 指数值
+			 * 根据指数值，在console中，直接打印结果
+			 * (将结果返回 ，可做返回值)
+			 * 数据 ：身高，体重，指数
+			 */
+			 function calClt(){
+				//1、声明  身高(height)，体重(weight) 变量
+				var height,weight;
+				//2、声明 可莱托指数 clt
+				var clt;
+				//3、为身高 和 体重赋值
+				height = Number(prompt("请输入您的身高:"));
+				weight = Number(prompt("请输入您的体重:"));
+				//4、计算 clt 
+				clt = weight/(height*height);
+				console.log(clt);
+				//5、根据 clt 值， 打印输出结果
+				if(clt < 20){
+					console.log("有点瘦吧!");
+				}else if(clt > 25){
+					console.log("有点胖啊!");
+				}else{
+					console.log("身材正好!!!");
+				}
+				
+				//以下结构也可以完成相应的功能，不过效率较低，不推荐
+				/*if(clt < 20){
+					console.log("有点瘦吧!");
+				}
+				if(clt > 25){
+					console.log("有点胖啊!");
+				}
+				if(clt>=20 && clt <=25){
+					console.log("身材正好!!!");
+				}*/
+			 }
+				
+			 /**
+			  * 输入 年，月，日，判断 该日子是这一年的多少天
+				* 2015 10 28
+				* 
+				*/
+			 function calDays(){
+				//1、定义 year，month，day，totalDays
+				var year,month,day,totalDays=0;
+				//2、赋值
+				year=Number(prompt("请输入年份:"));
+				month=Number(prompt("请输入月份:"));
+				day=Number(prompt("请输入日:"));
+				//3、计算 year 是否为 闰年 保存在 isRun
+				//闰年：能被4整除，但不能被100整除 或 能被400整除
+				var isRun = (year%4==0&&year%100!=0)||(year%400==0)
+
+				//4、根据 month， 做天数累加
+				if(month == 1){
+					totalDays=day;
+				}else if(month == 2){
+					totalDays=31+day;
+				}else if(month == 3){
+					totalDays=31+(isRun?29:28)+day;
+				}else if(month == 4){
+					totalDays=31+(isRun?29:28)+31+day;
+				}else if(month == 5){
+					totalDays=31+(isRun?29:28)+31+30+day;
+				}else if(month == 6){
+					totalDays=31+(isRun?29:28)+31+30+31+day;
+				}else if(month == 7){
+					totalDays=31+(isRun?29:28)+31+30+31+30+day;
+				}else if(month == 8){
+					totalDays=31+(isRun?29:28)+31+30+31+30+31+day;
+				}else if(month == 9){
+					totalDays=31+(isRun?29:28)+31+30+31+30+31+31+day;
+				}else if(month == 10){
+					totalDays=31+(isRun?29:28)+31+30+31+30+31+31+30+day;
+				}else if(month == 11){
+					totalDays=31+(isRun?29:28)+31+30+31+30+31+31+30+31+day;
+				}else if(month == 12){
+					totalDays=31+(isRun?29:28)+31+30+31+30+31+31+30+31+30+day;
+				}else{
+					totalDays = 0;
+				}
+				//判断 totalDays == 0 ， 提示输入的数据不正确
+				if(totalDays == 0){
+					console.log("您输入的数据不正确!");
+				}else{
+					console.log("您出生在"+year+"年的第"+totalDays+"天");
+				}
+			}
+			
+
+			/**
+			 * 通过 短路逻辑 实现 年月日的计算
+			 * 传递 过来  年，也，日 作为参数
+			 */
+			function cals(y,m,d){
+				var totalDays = 0;
+
+				m>11&&(totalDays+=30);
+				m>10&&(totalDays+=31);
+				m>9&&(totalDays+=30);
+				m>8&&(totalDays+=31);
+				m>7&&(totalDays+=31);
+				m>6&&(totalDays+=30);
+				m>5&&(totalDays+=31);
+				m>4&&(totalDays+=30);
+				m>3&&(totalDays+=31);
+				m>2&&(
+					totalDays += 28,
+					(y%4==0&&y%100!=0||y%400==0)&&totalDays++
+				);
+				m>1&&(totalDays+=31);
+				totalDays += d;
+				console.log("您出生在:"+totalDays+"天!");
+			}
+			
+			cals(1958,12,4);
+		</script>
+	</body>
+</html>
